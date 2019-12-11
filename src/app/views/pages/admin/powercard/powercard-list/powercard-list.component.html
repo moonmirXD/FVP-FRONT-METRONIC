@@ -1,0 +1,106 @@
+<div class="row">
+	<div class="col-md-12">
+		<kt-portlet>
+			<kt-portlet-header>
+				<ng-container ktPortletTitle>
+					<h3 class="kt-portlet__head-title">
+						<span><!-- title here --></span>
+						<h3>Power Card List</h3>
+					</h3>
+				</ng-container>
+				<ng-container ktPortletTools>
+					<!-- buttons here -->
+				</ng-container>
+			</kt-portlet-header>
+			<kt-portlet-body>
+				<div class="example-container mat-elevation-z8">
+					<mat-table #table [dataSource]="dataSource">
+						<!-- Position Column -->
+						<ng-container matColumnDef="key_id">
+							<mat-header-cell *matHeaderCellDef>
+								key_id
+							</mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{ element.key_id }}
+							</mat-cell>
+						</ng-container>
+						<!-- Name Column -->
+						<ng-container matColumnDef="email">
+							<mat-header-cell *matHeaderCellDef>
+								email
+							</mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{ element.email }}
+							</mat-cell>
+						</ng-container>
+						<!-- Weight Column -->
+						<ng-container matColumnDef="status">
+							<mat-header-cell *matHeaderCellDef>
+								status
+							</mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{ element.status }}
+							</mat-cell>
+						</ng-container>
+						<!-- Action -->
+						<ng-container matColumnDef="action">
+							<mat-header-cell *matHeaderCellDef>
+								action
+							</mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								<td>
+									<button
+										(click)="viewData(element._id)"
+										mat-icon-button
+										color="primary"
+										matTooltip="Edit this ledger"
+										type="button"
+									>
+										<mat-icon class="action-icon"
+											>pageview</mat-icon
+										>
+									</button>
+									<button
+										(click)="editData(element._id)"
+										mat-icon-button
+										color="primary"
+										matTooltip="Edit this ledger"
+										type="button"
+									>
+										<mat-icon class="action-icon"
+											>edit</mat-icon
+										>
+									</button>
+									<button
+										(click)="deleteData(element._id)"
+										mat-icon-button
+										color="warn"
+										matTooltip="Delete this ledger"
+										type="button"
+									>
+										<mat-icon class="action-icon"
+											>delete</mat-icon
+										>
+									</button>
+								</td>
+							</mat-cell>
+						</ng-container>
+						<mat-header-row
+							*matHeaderRowDef="displayedColumns"
+						></mat-header-row>
+						<mat-row
+							*matRowDef="let row; columns: displayedColumns"
+						></mat-row>
+					</mat-table>
+					<mat-paginator
+						#paginator
+						[pageSize]="10"
+						[pageSizeOptions]="[5, 10, 20]"
+						[showFirstLastButtons]="true"
+					>
+					</mat-paginator>
+				</div>
+			</kt-portlet-body>
+		</kt-portlet>
+	</div>
+</div>

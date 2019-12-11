@@ -1,0 +1,71 @@
+<form [formGroup]="powerCardForm" (ngSubmit)="onSubmit()" *ngIf="form">
+	<div class="form-group">
+		<label for="exampleInputEmail1">Key_ID</label>
+		<input
+			type="text"
+			class="form-control"
+			name="key_id"
+			value="{{ form?.key_id }}"
+			formControlName="key_id"
+			[(ngModel)]="form.key_id"
+		/>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputPassword1">Pin</label>
+		<input
+			type="text"
+			class="form-control"
+			name="pin"
+			value="{{ form?.pin }}"
+			formControlName="pin"
+			[(ngModel)]="form.pin"
+		/>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1">Email address</label>
+		<input
+			type="email"
+			class="form-control"
+			name="email"
+			value="{{ form?.email }}"
+			formControlName="email"
+			[(ngModel)]="form.email"
+		/>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1">Username</label>
+		<input
+			type="text"
+			class="form-control"
+			name="userName"
+			value="{{ form?.userName }}"
+			formControlName="userName"
+			[(ngModel)]="form.userName"
+		/>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1">Status</label>
+		<input
+			type="email"
+			class="form-control"
+			name="status"
+			value="{{ form?.status }}"
+			formControlName="status"
+			[(ngModel)]="form.status"
+		/>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail1">isDisabled</label>
+		<select
+			class="form-control"
+			name="isDisabled"
+			formControlName="isDisabled"
+			[(ngModel)]="form.isDisabled"
+		>
+			<option value="Enable">Enable</option>
+			<option value="Disable">Disable</option>
+		</select>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

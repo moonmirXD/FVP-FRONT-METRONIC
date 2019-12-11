@@ -1,0 +1,66 @@
+export class MenuConfig {
+	public defaults: any = {
+		header: {
+			self: {},
+			items: [
+				{
+					title: "Dashboards",
+					root: true,
+					alignment: "left",
+					page: "/dashboard",
+					translate: "Dashboard"
+				}
+			]
+		},
+		aside: {
+			self: {},
+			items: [
+				{
+					title: "Dashboard",
+					root: true,
+					icon: "flaticon2-architecture-and-city",
+					page: "/dashboard",
+					translate: "Dashboard",
+					bullet: "dot"
+				},
+				{
+					title: "Power Card",
+					root: true,
+					icon: "flaticon2-expand",
+					page: "/admin",
+					bullet: "dot",
+					submenu: [
+						{
+							title: "Add Power Card",
+							page: "/powercard-add"
+						},
+						{
+							title: "Power Card List",
+							page: "/powercard-list"
+						}
+					]
+				},
+				{
+					title: "Gallery",
+					root: true,
+					icon: "flaticon2-expand",
+					page: "/admin",
+					submenu: [
+						{
+							title: "Add Gallery",
+							page: "/gallery-add"
+						},
+						{
+							title: "Gallery List",
+							page: "/gallery-list"
+						}
+					]
+				}
+			]
+		}
+	};
+
+	public get configs(): any {
+		return this.defaults;
+	}
+}
