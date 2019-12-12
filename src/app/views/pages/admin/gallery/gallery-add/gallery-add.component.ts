@@ -41,7 +41,7 @@ export class GalleryAddComponent implements OnInit {
 
 	onSubmit() {
 		this.adminApiService
-			.postPowerCard(this.galleryForm.value)
+			.postGallery(this.galleryForm.value)
 			.subscribe(res => {
 				console.log(res);
 				alert("Successfully added!");

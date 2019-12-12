@@ -13,6 +13,7 @@ import { GalleryAddComponent } from "./views/pages/admin/gallery/gallery-add/gal
 import { GalleryEditComponent } from "./views/pages/admin/gallery/gallery-edit/gallery-edit.component";
 import { GalleryListComponent } from "./views/pages/admin/gallery/gallery-list/gallery-list.component";
 import { GalleryViewComponent } from "./views/pages/admin/gallery/gallery-view/gallery-view.component";
+import { LoginComponent } from "./views/pages/auth/login/login.component";
 
 const routes: Routes = [
 	{
@@ -20,7 +21,7 @@ const routes: Routes = [
 		loadChildren: () =>
 			import("./views/pages/auth/auth.module").then(m => m.AuthModule)
 	},
-
+	{ path: "zxc", component: LoginComponent },
 	{
 		path: "",
 		component: BaseComponent,
