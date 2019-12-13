@@ -55,6 +55,12 @@ export class MenuConfig {
 							page: "/gallery-list"
 						}
 					]
+				},
+				{
+					title: "Logout",
+					root: true,
+					icon: "flaticon2-expand",
+					page: "/adminlogin"
 				}
 			]
 		}

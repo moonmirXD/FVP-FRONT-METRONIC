@@ -58,7 +58,12 @@ import * as scss from "highlight.js/lib/languages/scss";
 import * as xml from "highlight.js/lib/languages/xml";
 import * as json from "highlight.js/lib/languages/json";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { LoginComponent } from './admin/login/login.component';
+import { AdminLoginComponent } from "./admin/admin-login/admin-login.component";
+
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { TokenInterceptorService } from "./admin/services/token-interceptor.service";
+import { DealerLoginComponent } from './dealer/dealer-login/dealer-login.component';
+import { ActivateCardComponent } from './dealer/activate-card/activate-card.component';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -87,7 +92,7 @@ export function hljsLanguages(): HighlightLanguage[] {
 }
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent],
+	declarations: [AppComponent, AdminLoginComponent, DealerLoginComponent, ActivateCardComponent],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,
@@ -117,6 +122,11 @@ export function hljsLanguages(): HighlightLanguage[] {
 		PageConfigService,
 		KtDialogService,
 		SplashScreenService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptorService,
+			multi: true
+		},
 		{
 			provide: PERFECT_SCROLLBAR_CONFIG,
 			useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG

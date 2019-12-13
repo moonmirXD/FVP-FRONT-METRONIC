@@ -1,0 +1,65 @@
+$text-color: #112b02;
+$screen-sm-min: 576px;
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url("../../../assets/images/fvp_BG\ 1.png");
+	background-size: cover;
+	height: 100vh;
+	@media screen and (max-width: 1024px) {
+		input[type="text"]::placeholder {
+			font-size: 26px;
+		}
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: -webkit-fill-available;
+		}
+	}
+}
+#login {
+	// padding-top: 5%;
+}
+#login .container #login-row #login-colum {
+	margin-top: 120px;
+	max-width: 600px;
+	height: 320px;
+	border: 1px solid #9c9c9c;
+	background-color: #eaeaea;
+}
+input[type="text"] {
+	background: transparent;
+	border: 3px solid $text-color;
+	margin: 20px auto;
+	display: inline-block;
+	// font-size: 1.3em;
+	height: 80px;
+	font-size: 2em;
+}
+.form-group {
+	text-align: center;
+}
+input[type="text"]::placeholder {
+	/* Firefox, Chrome, Opera */
+	text-align: center;
+
+	color: $text-color;
+	font-weight: bold;
+}
+input[type="button"] {
+	/* Firefox, Chrome, Opera */
+}
+#login .container #login-row #login-colum #login-form {
+	padding: 20px;
+}
+#login .container #login-row #login-column #login-form #register-link {
+	margin-top: -85px;
+}

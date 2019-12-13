@@ -10,6 +10,7 @@ import { AdminApiService } from "../../services/adminapi.service";
 export class GalleryAddComponent implements OnInit {
 	galleryForm: FormGroup;
 	imageURL: string;
+	// selectedFile: File;
 	constructor(
 		private formBuilder: FormBuilder,
 		private adminApiService: AdminApiService
@@ -25,12 +26,14 @@ export class GalleryAddComponent implements OnInit {
 	}
 
 	showPreview(event) {
+		// this.selectedFile = event.target.files[0];
+		// let file = event.target.files[0];
 		const file = (event.target as HTMLInputElement).files[0];
 		this.galleryForm.patchValue({
 			uploadFile: file
 		});
 		this.galleryForm.get("uploadFile").updateValueAndValidity();
-
+		console.log(typeof file);
 		// File Preview
 		const reader = new FileReader();
 		reader.onload = () => {

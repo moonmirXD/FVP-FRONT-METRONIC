@@ -13,18 +13,24 @@ import { GalleryAddComponent } from "./views/pages/admin/gallery/gallery-add/gal
 import { GalleryEditComponent } from "./views/pages/admin/gallery/gallery-edit/gallery-edit.component";
 import { GalleryListComponent } from "./views/pages/admin/gallery/gallery-list/gallery-list.component";
 import { GalleryViewComponent } from "./views/pages/admin/gallery/gallery-view/gallery-view.component";
-import { LoginComponent } from "./views/pages/auth/login/login.component";
-
+import { AdminLoginComponent } from "./admin/admin-login/admin-login.component";
+import { AuthGuard } from "./admin/guard/auth.guard";
+import { DealerLoginComponent } from "./dealer/dealer-login/dealer-login.component";
+import { ActivateCardComponent } from "./dealer/activate-card/activate-card.component";
 const routes: Routes = [
+	{ path: "adminlogin", component: AdminLoginComponent },
+	{ path: "dealerlogin", component: DealerLoginComponent },
+	{ path: "activate-card", component: ActivateCardComponent },
 	{
 		path: "auth",
 		loadChildren: () =>
 			import("./views/pages/auth/auth.module").then(m => m.AuthModule)
 	},
-	{ path: "zxc", component: LoginComponent },
+
 	{
 		path: "",
 		component: BaseComponent,
+		// canActivate: [AuthGuard],
 		children: [
 			{
 				path: "dashboard",
@@ -63,6 +69,8 @@ const routes: Routes = [
 			{ path: "gallery-list", component: GalleryListComponent },
 			{ path: "gallery-view/:id", component: GalleryViewComponent },
 			{ path: "gallery-edit/:id", component: GalleryEditComponent },
+
+			//Dealer
 
 			{ path: "error/:type", component: ErrorPageComponent },
 			{ path: "", redirectTo: "dashboard", pathMatch: "full" },
