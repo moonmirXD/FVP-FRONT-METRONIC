@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
 	selector: "kt-activate-card",
@@ -8,12 +8,14 @@ import { FormBuilder } from "@angular/forms";
 })
 export class ActivateCardComponent implements OnInit {
 	constructor(private fb: FormBuilder) {}
+	activateForm: FormGroup;
+	ngOnInit() {
+		this.activateForm = this.fb.group({
+			pin: [""]
+		});
+	}
 
-	ngOnInit() {}
-	activateForm = this.fb.group({
-		pin: [""]
-	});
 	onSubmit() {
-		console.log("Success");
+		console.log(this.activateForm.value);
 	}
 }

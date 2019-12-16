@@ -13,17 +13,6 @@ body {
 	background-image: url("../../../assets/images/fvp_BG\ 1.png");
 	background-size: cover;
 	height: 100vh;
-	@media screen and (max-width: 1024px) {
-		input[type="text"]::placeholder {
-			font-size: 26px;
-		}
-		img {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			width: -webkit-fill-available;
-		}
-	}
 }
 #login {
 	// padding-top: 5%;
@@ -62,4 +51,15 @@ input[type="button"] {
 }
 #login .container #login-row #login-column #login-form #register-link {
 	margin-top: -85px;
+}
+@media screen and (max-width: 1024px) {
+	input[type="text"]::placeholder {
+		font-size: 26px;
+	}
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: -webkit-fill-available;
+	}
 }

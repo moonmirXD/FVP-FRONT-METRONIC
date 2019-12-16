@@ -17,10 +17,23 @@ import { AdminLoginComponent } from "./admin/admin-login/admin-login.component";
 import { AuthGuard } from "./admin/guard/auth.guard";
 import { DealerLoginComponent } from "./dealer/dealer-login/dealer-login.component";
 import { ActivateCardComponent } from "./dealer/activate-card/activate-card.component";
+import { ContactDetailsComponent } from "./dealer/dealer-registration/contact-details/contact-details.component";
+import { OnlineStoreComponent } from "./dealer/dealer-registration/online-store/online-store.component";
+import { TermsAndAgreementComponent } from "./dealer/dealer-registration/terms-and-agreement/terms-and-agreement.component";
+import { PersonalDetailsComponent } from "./dealer/dealer-registration/personal-details/personal-details.component";
 const routes: Routes = [
 	{ path: "adminlogin", component: AdminLoginComponent },
 	{ path: "dealerlogin", component: DealerLoginComponent },
-	{ path: "activate-card", component: ActivateCardComponent },
+
+	//dealer-route
+	{ path: "activate-card", component: ActivateCardComponent }, // When activated going to registration route
+
+	//dealer registration-route
+	{ path: "contact-details", component: ContactDetailsComponent },
+	{ path: "online-store", component: OnlineStoreComponent },
+	{ path: "personal-details", component: PersonalDetailsComponent },
+	{ path: "terms-and-agreement", component: TermsAndAgreementComponent },
+
 	{
 		path: "auth",
 		loadChildren: () =>

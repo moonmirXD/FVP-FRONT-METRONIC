@@ -44,26 +44,28 @@
 		/>
 	</div>
 	<div class="form-group">
-		<label for="exampleInputEmail1">Status</label>
-		<input
-			type="email"
+		<label>status</label>
+		<select
 			class="form-control"
 			name="status"
-			value="{{ form?.status }}"
 			formControlName="status"
 			[(ngModel)]="form.status"
-		/>
+		>
+			<option value="Active">Active</option>
+			<option value="Inactive">Inactive</option>
+		</select>
 	</div>
 	<div class="form-group">
 		<label for="exampleInputEmail1">isDisabled</label>
 		<select
+			disabled
 			class="form-control"
 			name="isDisabled"
 			formControlName="isDisabled"
 			[(ngModel)]="form.isDisabled"
 		>
-			<option value="Enable">Enable</option>
-			<option value="Disable">Disable</option>
+			<option value="true">Enable</option>
+			<option value="false">Disable</option>
 		</select>
 	</div>
 

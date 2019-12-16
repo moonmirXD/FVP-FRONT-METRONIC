@@ -62,8 +62,14 @@ import { AdminLoginComponent } from "./admin/admin-login/admin-login.component";
 
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { TokenInterceptorService } from "./admin/services/token-interceptor.service";
-import { DealerLoginComponent } from './dealer/dealer-login/dealer-login.component';
-import { ActivateCardComponent } from './dealer/activate-card/activate-card.component';
+import { DealerLoginComponent } from "./dealer/dealer-login/dealer-login.component";
+import { ActivateCardComponent } from "./dealer/activate-card/activate-card.component";
+import { AdminComponent } from "./admin/admin.component";
+import { DealerRegistrationComponent } from "./dealer/dealer-registration/dealer-registration.component";
+import { PersonalDetailsComponent } from "./dealer/dealer-registration/personal-details/personal-details.component";
+import { ContactDetailsComponent } from "./dealer/dealer-registration/contact-details/contact-details.component";
+import { OnlineStoreComponent } from "./dealer/dealer-registration/online-store/online-store.component";
+import { TermsAndAgreementComponent } from "./dealer/dealer-registration/terms-and-agreement/terms-and-agreement.component";
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -92,7 +98,18 @@ export function hljsLanguages(): HighlightLanguage[] {
 }
 
 @NgModule({
-	declarations: [AppComponent, AdminLoginComponent, DealerLoginComponent, ActivateCardComponent],
+	declarations: [
+		AppComponent,
+		AdminLoginComponent,
+		DealerLoginComponent,
+		ActivateCardComponent,
+		AdminComponent,
+		DealerRegistrationComponent,
+		PersonalDetailsComponent,
+		ContactDetailsComponent,
+		OnlineStoreComponent,
+		TermsAndAgreementComponent
+	],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,
