@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { FormGroup, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { DealerapiService } from "../../services/dealerapi.service";
+import { MustMatch } from "../../_helpers/must-match-validators";
 
 @Component({
 	selector: "kt-personal-details",
@@ -14,28 +15,40 @@ export class PersonalDetailsComponent implements OnInit {
 		private dealerApi: DealerapiService,
 		private router: Router
 	) {}
+	submitted = false;
 	personalForm: FormGroup;
 	ngOnInit() {
-		this.personalForm = this.fb.group({
-			firstName: [""],
-			lastName: [""],
-			middleName: [""],
-			userName: [""],
-			email: [""],
-			password: [""],
-			password2: [""],
-			contactNumber: [""],
-			address: [""],
-			onlineStore: [""]
-		});
+		this.personalForm = this.fb.group(
+			{
+				firstName: ["", Validators.required],
+				lastName: ["", Validators.required],
+				middleName: ["", Validators.required],
+				userName: ["", Validators.required],
+				email: ["", Validators.email],
+				password: ["", [Validators.required, Validators.minLength(6)]],
+				password2: ["", Validators.required],
+				contactNumber: ["", Validators.required],
+				address: ["", Validators.required],
+				onlineStore: [""]
+			},
+			{
+				validator: MustMatch("password", "password2")
+			}
+		);
 	}
 	onSubmit() {
-		this.dealerApi
-			.postRegistrationForm(this.personalForm.value)
-			.subscribe((res: any) => {
-				console.log(res);
-				alert("Successfully Registered!");
-			});
+		this.submitted = true;
+    console.log(this.personalForm.value)
+		if (this.personalForm.invalid) {
+			return;
+		} else {
+			this.dealerApi
+				.postRegistrationForm(this.personalForm.value)
+				.subscribe((res: any) => {
+					console.log(res);
+					alert("Successfully Registered!");
+				});
+		}
 	}
 	nextPage() {
 		this.router.navigate(["/contact-details"]);
