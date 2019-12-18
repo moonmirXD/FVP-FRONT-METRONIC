@@ -9,9 +9,10 @@ import { AdminApiService } from "../../services/adminapi.service";
 	styleUrls: ["./powercard-edit.component.scss"]
 })
 export class PowercardEditComponent implements OnInit {
+	submitted = false;
 	form: any;
 	powerCardForm: FormGroup;
-	editID = this.route.snapshot.paramMap.get("id");
+	editID: any;
 	constructor(
 		private formBuilder: FormBuilder,
 		private route: ActivatedRoute,
@@ -20,16 +21,20 @@ export class PowercardEditComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.getId();
 		this.powerCardForm = this.formBuilder.group({
-			key_id: [""],
-			pin: [""],
-			email: [""],
-			userName: [""],
+			key_id: ["", Validators.required],
+			pin: ["", Validators.required],
+			email: ["", Validators.email],
+			userName: ["", Validators.required],
 			status: [""],
 			isDisabled: [""]
 		});
+		this.getId();
+		this.editID = this.route.snapshot.paramMap.get("id");
 	}
+	// get f() {
+	// 	return this.powerCardForm.controls;
+	// }
 
 	getId() {
 		let powerCardId = this.route.snapshot.paramMap.get("id");
@@ -37,20 +42,24 @@ export class PowercardEditComponent implements OnInit {
 			.getByIdPowerCard(powerCardId)
 			.subscribe((res: any) => {
 				this.form = res.data;
-				console.log("id3:", this.editID);
 				console.log(res);
 			});
 	}
 	onSubmit() {
-		this.adminApiService
-			// .updatePowerCard(this.editID, this.powerCardForm.value)
-			.updatePowerCard(this.editID, this.powerCardForm.value)
-			.subscribe((res: any) => {
-				console.log(res);
-				this.form = res.data;
-				console.log(this.editID);
-				alert("Successfully Updated");
-				this.router.navigate(["/powercard-list"]);
-			});
+		this.submitted = true;
+		if (this.powerCardForm.invalid) {
+			return;
+		} else {
+			this.adminApiService
+				// .updatePowerCard(this.editID, this.powerCardForm.value)
+				.updatePowerCard(this.editID, this.powerCardForm.value)
+				.subscribe((res: any) => {
+					console.log(res);
+					this.form = res.data;
+					console.log(this.editID);
+					alert("Successfully Updated");
+					this.router.navigate(["/powercard-list"]);
+				});
+		}
 	}
 }

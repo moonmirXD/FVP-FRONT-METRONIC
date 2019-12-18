@@ -36,10 +36,15 @@ export class GalleryListComponent implements OnInit {
 		});
 	}
 	deleteData(id: number) {
-		this.adminApiService.deleteGallery(id).subscribe(res => {
-			alert("Deleted!");
-			this.getData();
-		});
+		const ans = confirm("Are you sure you want to delete this?");
+		if (ans == true) {
+			this.adminApiService.deleteGallery(id).subscribe(res => {
+				alert("Deleted!");
+				this.getData();
+			});
+		} else {
+			console.log("not deleted");
+		}
 	}
 	viewData(id) {
 		this.router.navigate(["/gallery-view", id]);

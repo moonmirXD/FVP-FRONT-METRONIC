@@ -70,6 +70,15 @@ import { PersonalDetailsComponent } from "./dealer/dealer-registration/personal-
 import { ContactDetailsComponent } from "./dealer/dealer-registration/contact-details/contact-details.component";
 import { OnlineStoreComponent } from "./dealer/dealer-registration/online-store/online-store.component";
 import { TermsAndAgreementComponent } from "./dealer/dealer-registration/terms-and-agreement/terms-and-agreement.component";
+import { MainNavComponent } from "./main-nav/main-nav.component";
+import { LayoutModule } from "@angular/cdk/layout";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatIconModule } from "@angular/material/icon";
+import { MatListModule } from "@angular/material/list";
+import { AuthGuard } from "./admin/guard/auth.guard";
+import { AuthdealerGuard } from "./dealer/guard/authdealer.guard";
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -108,7 +117,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 		PersonalDetailsComponent,
 		ContactDetailsComponent,
 		OnlineStoreComponent,
-		TermsAndAgreementComponent
+		TermsAndAgreementComponent,
+		MainNavComponent
 	],
 	imports: [
 		BrowserAnimationsModule,
@@ -129,7 +139,13 @@ export function hljsLanguages(): HighlightLanguage[] {
 		InlineSVGModule.forRoot(),
 		ThemeModule,
 		ReactiveFormsModule,
-		FormsModule
+		FormsModule,
+		LayoutModule,
+		MatToolbarModule,
+		MatButtonModule,
+		MatSidenavModule,
+		MatIconModule,
+		MatListModule
 	],
 	exports: [],
 	providers: [
@@ -139,6 +155,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 		PageConfigService,
 		KtDialogService,
 		SplashScreenService,
+		AuthGuard,
+		AuthdealerGuard,
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: TokenInterceptorService,

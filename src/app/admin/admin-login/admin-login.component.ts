@@ -15,7 +15,9 @@ export class AdminLoginComponent implements OnInit {
 		private router: Router
 	) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.checkRoute();
+	}
 	loginUserData = this.fb.group({
 		userName: [""],
 		password: [""]
@@ -37,5 +39,11 @@ export class AdminLoginComponent implements OnInit {
 			err => console.log(err)
 		);
 		console.log(this.loginUserData);
+	}
+	checkRoute() {
+		if (this.router.url === "/adminlogin") {
+			console.log(this.router.url);
+			this.authService.logoutAdmin();
+		}
 	}
 }

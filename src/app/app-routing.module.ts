@@ -21,17 +21,22 @@ import { ContactDetailsComponent } from "./dealer/dealer-registration/contact-de
 import { OnlineStoreComponent } from "./dealer/dealer-registration/online-store/online-store.component";
 import { TermsAndAgreementComponent } from "./dealer/dealer-registration/terms-and-agreement/terms-and-agreement.component";
 import { PersonalDetailsComponent } from "./dealer/dealer-registration/personal-details/personal-details.component";
+import { AuthdealerGuard } from "./dealer/guard/authdealer.guard";
 const routes: Routes = [
 	{ path: "adminlogin", component: AdminLoginComponent },
 	{ path: "dealerlogin", component: DealerLoginComponent },
 
 	//dealer-route
-	{ path: "activate-card", component: ActivateCardComponent }, // When activated going to registration route
+	{ path: "register", component: ActivateCardComponent }, // When activated going to registration route
 
 	//dealer registration-route
-	{ path: "contact-details", component: ContactDetailsComponent },
+	{
+		path: "profile-details",
+		component: PersonalDetailsComponent,
+		canActivate: [AuthdealerGuard]
+	},
 	{ path: "online-store", component: OnlineStoreComponent },
-	{ path: "personal-details", component: PersonalDetailsComponent },
+	{ path: "contact-details", component: ContactDetailsComponent },
 	{ path: "terms-and-agreement", component: TermsAndAgreementComponent },
 
 	{
@@ -43,7 +48,7 @@ const routes: Routes = [
 	{
 		path: "",
 		component: BaseComponent,
-		// canActivate: [AuthGuard],
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: "dashboard",
@@ -71,17 +76,53 @@ const routes: Routes = [
 				}
 			},
 			//powercard
-			{ path: "admin", component: AdminComponent },
-			{ path: "powercard-add", component: PowercardAddComponent },
-			{ path: "powercard-list", component: PowercardListComponent },
-			{ path: "powercard-view/:id", component: PowercardViewComponent },
-			{ path: "powercard-edit/:id", component: PowercardEditComponent },
+			{
+				path: "admin",
+				component: AdminComponent,
+				canActivate: [AuthGuard]
+			},
+			{
+				path: "powercard-add",
+				component: PowercardAddComponent,
+				canActivate: [AuthGuard]
+			},
+			{
+				path: "powercard-list",
+				component: PowercardListComponent,
+				canActivate: [AuthGuard]
+			},
+			{
+				path: "powercard-view/:id",
+				component: PowercardViewComponent,
+				canActivate: [AuthGuard]
+			},
+			{
+				path: "powercard-edit/:id",
+				component: PowercardEditComponent,
+				canActivate: [AuthGuard]
+			},
 
 			//gallery
-			{ path: "gallery-add", component: GalleryAddComponent },
-			{ path: "gallery-list", component: GalleryListComponent },
-			{ path: "gallery-view/:id", component: GalleryViewComponent },
-			{ path: "gallery-edit/:id", component: GalleryEditComponent },
+			{
+				path: "gallery-add",
+				component: GalleryAddComponent,
+				canActivate: [AuthGuard]
+			},
+			{
+				path: "gallery-list",
+				component: GalleryListComponent,
+				canActivate: [AuthGuard]
+			},
+			{
+				path: "gallery-view/:id",
+				component: GalleryViewComponent,
+				canActivate: [AuthGuard]
+			},
+			{
+				path: "gallery-edit/:id",
+				component: GalleryEditComponent,
+				canActivate: [AuthGuard]
+			},
 
 			//Dealer
 

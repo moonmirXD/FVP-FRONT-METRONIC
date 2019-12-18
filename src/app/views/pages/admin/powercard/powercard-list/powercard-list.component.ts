@@ -43,19 +43,23 @@ export class PowercardListComponent implements OnInit {
 		});
 	}
 	deleteData(_id: number) {
-		this.adminApiService.deletePowerCard(_id).subscribe(res => {
-			alert("Deleted!");
-			this.getData();
-		});
-		console.log("The id:", _id);
+		const ans = confirm("Are you sure you want to delete this?");
+		if (ans == true) {
+			console.log("deleted");
+			this.adminApiService.deletePowerCard(_id).subscribe(res => {
+				alert("Deleted!");
+				this.getData();
+			});
+		} else {
+			console.log("not deleted");
+		}
 	}
 	viewData(_id) {
 		this.router.navigate(["/powercard-view", _id]);
-		console.log("ID:", _id);
 	}
 	editData(id) {
 		this.router.navigate(["/powercard-edit", id]);
-		console.log("ID2:", id);
+
 		// const message = "Group successfully added.";
 		// const dialogRef = this.dialog.open(PowercardEditComponent);
 

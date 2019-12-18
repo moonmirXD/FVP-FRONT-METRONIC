@@ -8,6 +8,7 @@ import { AdminApiService } from "../../services/adminapi.service";
 	styleUrls: ["./gallery-add.component.scss"]
 })
 export class GalleryAddComponent implements OnInit {
+	submitted = false;
 	galleryForm: FormGroup;
 	imageURL: string;
 	// selectedFile: File;
@@ -43,11 +44,16 @@ export class GalleryAddComponent implements OnInit {
 	}
 
 	onSubmit() {
-		this.adminApiService
-			.postGallery(this.galleryForm.value)
-			.subscribe(res => {
-				console.log(res);
-				alert("Successfully added!");
-			});
+		this.submitted = true;
+		if (this.galleryForm.invalid) {
+			return;
+		} else {
+			this.adminApiService
+				.postGallery(this.galleryForm.value)
+				.subscribe(res => {
+					console.log(res);
+					alert("Successfully added!");
+				});
+		}
 	}
 }

@@ -23,4 +23,7 @@ export class AuthenticationService {
 		localStorage.removeItem("token");
 		this.router.navigate(["dealerlogin"]);
 	}
+	activateCardAuth() {
+		return !!localStorage.getItem("token");
+	}
 }

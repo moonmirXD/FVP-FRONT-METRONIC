@@ -1,12 +1,15 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
+import { Observable } from "rxjs/internal/Observable";
+import { Router } from "@angular/router";
+import { throwError } from "rxjs";
 
 @Injectable({
 	providedIn: "root"
 })
 export class AdminApiService {
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private router: Router) {}
 	getPowerCardURL = "https://fvp-back.herokuapp.com/powercard/list";
 	postPowerCardURL = "https://fvp-back.herokuapp.com/powercard/create";
 	deletePowerCardURL = "https://fvp-back.herokuapp.com/powercard/delete";
@@ -14,11 +17,21 @@ export class AdminApiService {
 	editPowerCardURL = "https://fvp-back.herokuapp.com/powercard/edit";
 	getbyIdPowerCardURL = "https://fvp-back.herokuapp.com/powercard/list";
 	mockDB = "http://localhost:3000/users";
+
 	postPowerCard(form) {
 		return this.http.post(this.postPowerCardURL, form);
 	}
-	getPowerCard() {
-		return this.http.get(this.getPowerCardURL);
+	getPowerCard(): Observable<any> {
+		return this.http.get<any[]>(this.getPowerCardURL).pipe(
+			catchError(err => {
+				if (err.status == 403) {
+					this.router.navigate(["/adminlogin"]);
+					console.log("Session expired");
+				} else {
+					return throwError(err);
+				}
+			})
+		);
 	}
 	deletePowerCard(id) {
 		return this.http.delete(`${this.deletePowerCardURL}/${id}`);
@@ -48,4 +61,5 @@ export class AdminApiService {
 	getById(id) {
 		return this.http.get(`${this.mockDB}/${id}`);
 	}
+	errorHandler(error: HttpErrorResponse) {}
 }

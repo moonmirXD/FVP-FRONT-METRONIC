@@ -8,6 +8,7 @@ import { AdminApiService } from "../../services/adminapi.service";
 	styleUrls: ["./powercard-add.component.scss"]
 })
 export class PowercardAddComponent implements OnInit {
+	submitted = false;
 	powerCardForm: FormGroup;
 	constructor(
 		private formBuilder: FormBuilder,
@@ -16,16 +17,24 @@ export class PowercardAddComponent implements OnInit {
 
 	ngOnInit() {
 		this.powerCardForm = this.formBuilder.group({
-			key_id: ["Sample", Validators.required],
-			pin: ["Sample Pin", Validators.required]
+			key_id: ["", Validators.required],
+			pin: ["", Validators.required]
 		});
 	}
+	// get f() {
+	// 	return this.powerCardForm.controls;
+	// }
 	onSubmit() {
-		this.adminApiService
-			.postPowerCard(this.powerCardForm.value)
-			.subscribe(res => {
-				console.log(res);
-				alert("Successfully added!");
-			});
+		this.submitted = true;
+		if (this.powerCardForm.invalid) {
+			return;
+		} else {
+			this.adminApiService
+				.postPowerCard(this.powerCardForm.value)
+				.subscribe(res => {
+					console.log(res);
+					alert("Successfully added!");
+				});
+		}
 	}
 }

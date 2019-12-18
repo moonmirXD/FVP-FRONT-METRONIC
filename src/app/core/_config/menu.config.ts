@@ -45,6 +45,7 @@ export class MenuConfig {
 					root: true,
 					icon: "flaticon2-expand",
 					page: "/admin",
+					bullet: "dot",
 					submenu: [
 						{
 							title: "Add Gallery",

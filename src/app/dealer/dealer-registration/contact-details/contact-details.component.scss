@@ -1,37 +1,46 @@
 $textbox-color: #112b02;
 
 body {
-	// margin: 0;
-	// padding: 0;
-	// background-image: url("../../../../assets/images/fvp_BG\ 1.png");
-	// background-size: cover;
-	// height: 100vh;
+	background-image: url("../../../../assets/images/fvp_BG\ 1.png");
+	padding-top: 50px;
+	background-size: cover;
+	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
 }
-body {
-	text-align: center;
+h1 {
+	color: rgb(5, 172, 5);
 }
-form {
-	display: inline-block;
+p {
 }
-//  {
-// 	opacity: 0.9;
-// 	// background: transparent;
-// 	text-align: center;
-// 	border: 3px solid rgb(146, 201, 18);
-// 	margin: 20px auto;
-// }
-// input[type="text"],
-// select.form-control {
-// 	background: transparent;
-// 	border: none;
-// 	border-bottom: 1px solid #000000;
-// 	-webkit-box-shadow: none;
-// 	box-shadow: none;
-// 	border-radius: 0;
-input[type="text"] {
-	height: 50px !important;
-
-	width: 270px !important;
-
-	font-size: 14px !important;
+fieldset {
+	background-color: white;
+	color: black;
+	padding: 20px;
+}
+.form {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+legend {
+	background-color: rgb(30, 184, 30);
+	color: #fff;
+	padding: 3px 6px;
+}
+@media screen and (max-width: 550px) {
+	h1 {
+		font-size: 40px;
+	}
+	p {
+		font-size: 18px;
+	}
+}
+@media screen and (min-width: 550px) {
+	h1 {
+		font-size: 40px;
+	}
+	p {
+		font-size: 18px;
+	}
 }

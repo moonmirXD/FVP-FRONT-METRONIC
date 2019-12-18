@@ -1,88 +1,64 @@
+<link
+	rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous"
+/>
+<script
+	src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"
+></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"
+></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"
+></script>
+
 <body>
 	<div class="container">
-		<div class="registration mx-auto d-block w-100">
-			<div class="page-header text-center">
-				<h1>Sign up</h1>
-			</div>
+		<div class="form">
+			<h1>Congratulations!</h1>
+			<p>
+				You have successfully activated your account. Please enter your
+				personal details. All details will be displayed on your website.
+			</p>
 
-			<form
-				id="member-registration"
-				action="/astroidnew/index.php/pages/register?task=registration.register"
-				method="post"
-				class="form-validate form-horizontal well"
-				enctype="multipart/form-data"
-			>
+			<form>
 				<fieldset>
-					<legend>User Registration</legend>
-					<div class="form-group ">
-						<label for="exampleInputPassword1">First Name *</label>
-						<input
-							type="text"
-							class="form-control"
-							id="exampleInputPassword1"
-						/>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Last Name *</label>
-						<input
-							type="text"
-							class="form-control"
-							id="exampleInputPassword1"
-						/>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Middle Name *</label>
-						<input
-							type="text"
-							class="form-control"
-							id="exampleInputPassword1"
-						/>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Username *</label>
-						<input
-							type="text"
-							class="form-control"
-							id="exampleInputPassword1"
-						/>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Email Address *</label>
-						<input
-							type="text"
-							class="form-control"
-							id="exampleInputEmail1"
-						/>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Password *</label>
-						<input
-							type="password"
-							class="form-control"
-							id="exampleInputEmail1"
-						/>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Password *</label>
-						<input
-							type="password"
-							class="form-control"
-							id="exampleInputEmail1"
-						/>
-					</div>
-					<div
-						class="d-flex justify-content-between align-items-center"
-					>
-						<div class="form-group d-flex justify-content-start">
-							<button
-								type="submit"
-								class="btn btn-success btn-lg btn-block "
-								routerLink="['/contact-details']"
-							>
-								Next
-							</button>
+					<legend>Register Page - Contact Details</legend>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Contact Number</label>
+							<input
+								type="email"
+								class="form-control"
+								placeholder="+63922xxxxxxx"
+							/>
 						</div>
 					</div>
+					<div class="form-group">
+						<label for="inputAddress">Address</label>
+						<textarea
+							class="form-control"
+							placeholder="Unit 206, The Hope Condominium Tower 2,Chino Roces Ave., Brgy. Pio Del Pilar 1230 Makati City, Metro Manila,"
+							rows="3"
+						>
+						</textarea>
+					</div>
+
+					<button
+						type="submit"
+						class="btn btn-success"
+						style="float: right;"
+					>
+						Sign in
+					</button>
 				</fieldset>
 			</form>
 		</div>
