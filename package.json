@@ -4,7 +4,6 @@
 	"description": "Packages used by Angular",
 	"scripts": {
 		"ng": "ng",
-
 		"start": "node server.js",
 		"heroku-postbuild": "ng build --prod",
 		"build": "ng build --prod",
