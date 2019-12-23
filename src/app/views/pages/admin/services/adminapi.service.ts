@@ -10,12 +10,12 @@ import { throwError } from "rxjs";
 })
 export class AdminApiService {
 	constructor(private http: HttpClient, private router: Router) {}
-	getPowerCardURL = "https://fvp-back.herokuapp.com/powercard/list";
-	postPowerCardURL = "https://fvp-back.herokuapp.com/powercard/create";
-	deletePowerCardURL = "https://fvp-back.herokuapp.com/powercard/delete";
-	updatePowerCardURL = "https://fvp-back.herokuapp.com/powercard/edit";
-	editPowerCardURL = "https://fvp-back.herokuapp.com/powercard/edit";
-	getbyIdPowerCardURL = "https://fvp-back.herokuapp.com/powercard/list";
+	getPowerCardURL = "http://localhost:3000/powercard/list";
+	postPowerCardURL = "http://localhost:3000/powercard/create";
+	deletePowerCardURL = "http://localhost:3000/powercard/delete";
+	updatePowerCardURL = "http://localhost:3000/powercard/edit";
+	editPowerCardURL = "http://localhost:3000/powercard/edit";
+	getbyIdPowerCardURL = "http://localhost:3000/powercard/list";
 	mockDB = "http://localhost:3000/users";
 
 	postPowerCard(form) {

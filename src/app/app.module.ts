@@ -79,6 +79,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
 import { AuthGuard } from "./admin/guard/auth.guard";
 import { AuthdealerGuard } from "./dealer/guard/authdealer.guard";
+import { UniqueUsernameValidatorDirective } from "./dealer/_helpers/unique-username-validator.directive";
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -118,7 +119,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 		ContactDetailsComponent,
 		OnlineStoreComponent,
 		TermsAndAgreementComponent,
-		MainNavComponent
+		MainNavComponent,
+		UniqueUsernameValidatorDirective
 	],
 	imports: [
 		BrowserAnimationsModule,

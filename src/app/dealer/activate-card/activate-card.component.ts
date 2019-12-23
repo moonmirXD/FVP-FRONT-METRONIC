@@ -23,12 +23,15 @@ export class ActivateCardComponent implements OnInit {
 
 	onSubmit() {
 		console.log(this.activateForm.value);
-		this.dealerApi
-			.postActivateCard(this.activateForm.value)
-			.subscribe((res: any) => {
-				console.log("");
+		this.dealerApi.postActivateCard(this.activateForm.value).subscribe(
+			(res: any) => {
 				localStorage.setItem("token", res.token);
 				this.router.navigate(["/profile-details"]);
-			});
+			},
+			err => {
+				console.log(err.error.message);
+				alert(err.error.message);
+			}
+		);
 	}
 }

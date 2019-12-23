@@ -31,10 +31,15 @@ export class PowercardAddComponent implements OnInit {
 		} else {
 			this.adminApiService
 				.postPowerCard(this.powerCardForm.value)
-				.subscribe(res => {
-					console.log(res);
-					alert("Successfully added!");
-				});
+				.subscribe(
+					res => {
+						console.log(res);
+						alert("Successfully added!");
+					},
+					err => {
+						console.log(err);
+					}
+				);
 		}
 	}
 }

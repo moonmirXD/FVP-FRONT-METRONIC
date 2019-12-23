@@ -50,21 +50,21 @@
 								required
 							/>
 							<div
-							*ngIf="
-								submitted &&
-								personalForm.controls['firstName'].errors
-							"
-							class="invalid-feedback"
-						>
-							<div
 								*ngIf="
-									personalForm.controls['firstName']
-										.errors.required
+									submitted &&
+									personalForm.controls['firstName'].errors
 								"
+								class="invalid-feedback"
 							>
-								First Name is required
+								<div
+									*ngIf="
+										personalForm.controls['firstName']
+											.errors.required
+									"
+								>
+									First Name is required
+								</div>
 							</div>
-						</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="validationDefault02">Last name</label>
@@ -77,29 +77,26 @@
 								[ngClass]="{
 									'is-invalid':
 										submitted &&
-										personalForm.controls['lastName']
-											.errors
+										personalForm.controls['lastName'].errors
 								}"
 								required
 							/>
 							<div
-							*ngIf="
-								submitted &&
-								personalForm.controls['lastName'].errors
-							"
-							class="invalid-feedback"
-						>
-							<div
 								*ngIf="
-									personalForm.controls['lastName']
-										.errors.required
+									submitted &&
+									personalForm.controls['lastName'].errors
 								"
+								class="invalid-feedback"
 							>
-								Last Name is required
+								<div
+									*ngIf="
+										personalForm.controls['lastName'].errors
+											.required
+									"
+								>
+									Last Name is required
+								</div>
 							</div>
-						</div>
-
-
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="validationDefault01">Middle name</label>
@@ -118,22 +115,21 @@
 								required
 							/>
 							<div
-							*ngIf="
-								submitted &&
-								personalForm.controls['middleName'].errors
-							"
-							class="invalid-feedback"
-						>
-							<div
 								*ngIf="
-									personalForm.controls['middleName']
-										.errors.required
+									submitted &&
+									personalForm.controls['middleName'].errors
 								"
+								class="invalid-feedback"
 							>
-								Middle Name is required
+								<div
+									*ngIf="
+										personalForm.controls['middleName']
+											.errors.required
+									"
+								>
+									Middle Name is required
+								</div>
 							</div>
-						</div>
-
 						</div>
 					</div>
 					<div class="form-row">
@@ -148,28 +144,27 @@
 								[ngClass]="{
 									'is-invalid':
 										submitted &&
-										personalForm.controls['userName']
-											.errors
+										personalForm.controls['userName'].errors
 								}"
 								required
 							/>
 							<div
-							*ngIf="
-								submitted &&
-								personalForm.controls['userName'].errors
-							"
-							class="invalid-feedback"
-						>
-							<div
 								*ngIf="
-									personalForm.controls['userName']
-										.errors.required
+									submitted &&
+									personalForm.controls['userName'].errors
 								"
+								class="invalid-feedback"
 							>
-								Username is required
-							</div>
-						</div>
+								<div
+									*ngIf="
+										personalForm.controls['userName'].errors
+											.required
+									"
+								>
+									Username is required
+								</div>
 
+							</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="validationDefault02"
@@ -189,29 +184,30 @@
 								required
 							/>
 							<div
-							*ngIf="
-								submitted &&
-								personalForm.controls['email'].errors
-							"
-							class="invalid-feedback"
-						>
-							<div
 								*ngIf="
-									personalForm.controls['email']
-										.errors.required
+									submitted &&
+									personalForm.controls['email'].errors
 								"
+								class="invalid-feedback"
 							>
-								Email is required
+								<div
+									*ngIf="
+										personalForm.controls['email'].errors
+											.required
+									"
+								>
+									Email is required
+								</div>
+
+								<div
+									*ngIf="
+										personalForm.controls['email'].errors
+											.email
+									"
+								>
+									Email must be a valid email address
+								</div>
 							</div>
-							<div
-								*ngIf="
-									personalForm.controls['email']
-										.errors.email
-								"
-							>
-								Email must be a valid email address
-							</div>
-						</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="validationDefault01">Password</label>
@@ -223,15 +219,34 @@
 								[ngClass]="{
 									'is-invalid':
 										submitted &&
-										personalForm.controls['password']
-											.errors
+										personalForm.controls['password'].errors
 								}"
 								required
 							/>
-							<div *ngIf="submitted && personalForm.controls['password'].errors" class="invalid-feedback">
-									<div *ngIf="personalForm.controls['password'].errors.required">Password is required</div>
-									<div *ngIf="personalForm.controls['password'].errors.minlength">Password must be at least 6 characters</div>
+							<div
+								*ngIf="
+									submitted &&
+									personalForm.controls['password'].errors
+								"
+								class="invalid-feedback"
+							>
+								<div
+									*ngIf="
+										personalForm.controls['password'].errors
+											.required
+									"
+								>
+									Password is required
 								</div>
+								<div
+									*ngIf="
+										personalForm.controls['password'].errors
+											.minlength
+									"
+								>
+									Password must be at least 6 characters
+								</div>
+							</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="validationDefault01"
@@ -250,10 +265,30 @@
 								}"
 								required
 							/>
-							<div *ngIf="submitted && personalForm.controls['password2'].errors" class="invalid-feedback">
-									<div *ngIf="personalForm.controls['password2'].errors.required">Confirm Password is required</div>
-									<div *ngIf="personalForm.controls['password2'].errors.mustMatch">Passwords must match</div>
+							<div
+								*ngIf="
+									submitted &&
+									personalForm.controls['password2'].errors
+								"
+								class="invalid-feedback"
+							>
+								<div
+									*ngIf="
+										personalForm.controls['password2']
+											.errors.required
+									"
+								>
+									Confirm Password is required
 								</div>
+								<div
+									*ngIf="
+										personalForm.controls['password2']
+											.errors.mustMatch
+									"
+								>
+									Passwords must match
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -279,21 +314,22 @@
 								required
 							/>
 							<div
-							*ngIf="
-								submitted &&
-								personalForm.controls['contactNumber'].errors
-							"
-							class="invalid-feedback"
-						>
-							<div
 								*ngIf="
+									submitted &&
 									personalForm.controls['contactNumber']
-										.errors.required
+										.errors
 								"
+								class="invalid-feedback"
 							>
-								Contact Number is required
+								<div
+									*ngIf="
+										personalForm.controls['contactNumber']
+											.errors.required
+									"
+								>
+									Contact Number is required
+								</div>
 							</div>
-						</div>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="validationDefault02">Address</label>
@@ -311,21 +347,21 @@
 								required
 							></textarea>
 							<div
-							*ngIf="
-								submitted &&
-								personalForm.controls['address'].errors
-							"
-							class="invalid-feedback"
-						>
-							<div
 								*ngIf="
-									personalForm.controls['address']
-										.errors.required
+									submitted &&
+									personalForm.controls['address'].errors
 								"
+								class="invalid-feedback"
 							>
-								Address is required
+								<div
+									*ngIf="
+										personalForm.controls['address'].errors
+											.required
+									"
+								>
+									Address is required
+								</div>
 							</div>
-						</div>
 						</div>
 					</div>
 
