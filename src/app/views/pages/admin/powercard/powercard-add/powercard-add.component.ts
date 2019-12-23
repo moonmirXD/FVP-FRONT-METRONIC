@@ -24,7 +24,7 @@ export class PowercardAddComponent implements OnInit {
 	// get f() {
 	// 	return this.powerCardForm.controls;
 	// }
-	onSubmit() {
+	onSubmit(value:string) {
 		this.submitted = true;
 		if (this.powerCardForm.invalid) {
 			return;
