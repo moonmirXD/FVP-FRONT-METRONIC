@@ -26,7 +26,7 @@ export class DealerLoginComponent implements OnInit {
 			this.loginUserData.value.userName == "123" &&
 			this.loginUserData.value.password == "123"
 		) {
-			this.router.navigate(["/powercard-list"]);
+			this.router.navigate(["/URL-Details"]);
 		}
 		this.authService
 			.loginDealer(this.loginUserData.getRawValue())
@@ -34,7 +34,7 @@ export class DealerLoginComponent implements OnInit {
 				res => {
 					console.log(res);
 					localStorage.setItem("token", res.token);
-					this.router.navigate(["/powercard-list"]);
+					this.router.navigate(["/URL-Details"]);
 				},
 				err => console.log(err)
 			);

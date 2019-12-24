@@ -1,0 +1,45 @@
+<kt-main-nav>
+	<html>
+		<head>
+			<meta charset="utf-8" />
+			<meta
+				name="viewport"
+				content="width=device-width, initial-scale=1.0"
+			/>
+			<title>Login Page</title>
+			<!-- Latest compiled and minified CSS -->
+			<link
+				rel="stylesheet"
+				href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			/>
+			<!-- jQuery library -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<!-- Popper JS -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+			<!-- Latest compiled JavaScript -->
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		</head>
+		<body>
+			<form action="" id="Reset_Password_Form">
+				<div class="form-group">
+					<input
+						type="text"
+						class="form-control"
+						value="http/kwakwak"
+						name="url"
+					/>
+				</div>
+				<div class="form-group">
+					<button
+						class="btn btn-success"
+						id="Submit_New_Password"
+						type="submit"
+						(click)="copyUrl('This goes to Clipboard')"
+					>
+						Copy
+					</button>
+				</div>
+			</form>
+		</body>
+	</html>
+</kt-main-nav>

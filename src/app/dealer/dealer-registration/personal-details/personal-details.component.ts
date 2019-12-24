@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { DealerapiService } from "../../services/dealerapi.service";
 import { MustMatch } from "../../_helpers/must-match-validators";
-import { UniqueUsernameValidatorDirective } from "../../_helpers/unique-username-validator.directive";
 
 @Component({
 	selector: "kt-personal-details",
@@ -50,7 +49,7 @@ export class PersonalDetailsComponent implements OnInit {
 					(res: any) => {
 						console.log(res);
 						alert("Successfully Registered!");
-						// this.router.navigate(["/dealerlogin"]);
+						this.router.navigate(["/dealerlogin"]);
 					},
 					err => {
 						console.log(err);

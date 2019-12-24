@@ -42,4 +42,9 @@ export class DealerapiService {
 	postRegistrationForm(form) {
 		return this.http.post(this.mockDB, form);
 	}
+
+	//Dealer's URL
+	getUserUrl() {
+		return this.http.get(this.mockDB);
+	}
 }

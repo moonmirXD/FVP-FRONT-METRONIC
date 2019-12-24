@@ -1,3 +1,7 @@
+<link
+	href="https://fonts.googleapis.com/css?family=Squada+One&display=swap"
+	rel="stylesheet"
+/>
 <mat-sidenav-container class="sidenav-container">
 	<mat-sidenav
 		#drawer
@@ -11,12 +15,39 @@
 		<img
 			src="../../assets/images/fvp_FVP Logo.png"
 			alt=""
-			style="width: 100%;height: 15%; padding-top: 5px;"
+			style="width: 100%;
+		height: 15%;"
 		/>
 		<mat-nav-list>
-			<a mat-list-item href="#">Profile</a>
-			<a mat-list-item href="#">Shortcut URL</a>
-			<a mat-list-item href="#">Logout</a>
+			<a mat-list-item [routerLink]="['/URL-Details']"><h2>MySite</h2></a>
+			<ul style="list-style-type:none">
+				<li>
+					<a mat-list-item [routerLink]="['/URL-Details']"
+						><p>URL</p></a
+					>
+				</li>
+			</ul>
+
+			<a mat-list-item [routerLink]="['/URL-Details']"
+				><h2>Profile</h2></a
+			>
+			<ul style="list-style-type:none">
+				<li>
+					<a mat-list-item [routerLink]="['/personal-details/dealer']"
+						><p>Personal Details</p></a
+					>
+				</li>
+				<li>
+					<a
+						mat-list-item
+						[routerLink]="['/personal-details/contact']"
+						><p>
+							Contact Details
+						</p></a
+					>
+				</li>
+			</ul>
+			<a mat-list-item [routerLink]="['/dealerlogin']"><h2>Logout</h2></a>
 		</mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content>
@@ -33,5 +64,6 @@
 			<span>Vita Plus</span>
 		</mat-toolbar>
 		<!-- Add Content Here -->
+		<ng-content> </ng-content>
 	</mat-sidenav-content>
 </mat-sidenav-container>

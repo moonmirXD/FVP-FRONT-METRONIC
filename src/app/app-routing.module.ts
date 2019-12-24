@@ -22,14 +22,19 @@ import { OnlineStoreComponent } from "./dealer/dealer-registration/online-store/
 import { TermsAndAgreementComponent } from "./dealer/dealer-registration/terms-and-agreement/terms-and-agreement.component";
 import { PersonalDetailsComponent } from "./dealer/dealer-registration/personal-details/personal-details.component";
 import { AuthdealerGuard } from "./dealer/guard/authdealer.guard";
+import { DealersUrlComponent } from "./dealer/dealers-url/dealers-url.component";
+import { ViewProfileComponent } from "./dealer/profile/view-profile/view-profile.component";
+import { EditProfileComponent } from "./dealer/profile/edit-profile/edit-profile.component";
+import { ViewContactComponent } from "./dealer/profile/view-contact/view-contact.component";
+import { EditContactComponent } from "./dealer/profile/edit-contact/edit-contact.component";
 const routes: Routes = [
 	{ path: "adminlogin", component: AdminLoginComponent },
 	{ path: "dealerlogin", component: DealerLoginComponent },
 
-	//dealer-route
+	//dealer-route // activation route
 	{ path: "register", component: ActivateCardComponent }, // When activated going to registration route
 
-	//dealer registration-route
+	//dealer after activation route
 	{
 		path: "profile-details",
 		component: PersonalDetailsComponent,
@@ -38,6 +43,12 @@ const routes: Routes = [
 	{ path: "online-store", component: OnlineStoreComponent },
 	{ path: "contact-details", component: ContactDetailsComponent },
 	{ path: "terms-and-agreement", component: TermsAndAgreementComponent },
+	{ path: "URL-Details", component: DealersUrlComponent },
+
+	//profile of User inside the login
+	{ path: "personal-details/dealer", component: ViewProfileComponent },
+	{ path: "personal-details/contact", component: ViewContactComponent },
+	{ path: "personal-details/contact-edit", component: EditContactComponent },
 
 	{
 		path: "auth",

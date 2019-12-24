@@ -70,7 +70,6 @@ import { PersonalDetailsComponent } from "./dealer/dealer-registration/personal-
 import { ContactDetailsComponent } from "./dealer/dealer-registration/contact-details/contact-details.component";
 import { OnlineStoreComponent } from "./dealer/dealer-registration/online-store/online-store.component";
 import { TermsAndAgreementComponent } from "./dealer/dealer-registration/terms-and-agreement/terms-and-agreement.component";
-import { MainNavComponent } from "./main-nav/main-nav.component";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
@@ -79,7 +78,13 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
 import { AuthGuard } from "./admin/guard/auth.guard";
 import { AuthdealerGuard } from "./dealer/guard/authdealer.guard";
-import { UniqueUsernameValidatorDirective } from "./dealer/_helpers/unique-username-validator.directive";
+import { DealersUrlComponent } from "./dealer/dealers-url/dealers-url.component";
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { ViewProfileComponent } from './dealer/profile/view-profile/view-profile.component';
+import { EditProfileComponent } from './dealer/profile/edit-profile/edit-profile.component';
+import { ViewContactComponent } from './dealer/profile/view-contact/view-contact.component';
+import { EditContactComponent } from './dealer/profile/edit-contact/edit-contact.component';
+import { ForgotPasswordComponent } from './dealer/forgot-password/forgot-password.component';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -119,8 +124,13 @@ export function hljsLanguages(): HighlightLanguage[] {
 		ContactDetailsComponent,
 		OnlineStoreComponent,
 		TermsAndAgreementComponent,
+		DealersUrlComponent,
 		MainNavComponent,
-		UniqueUsernameValidatorDirective
+		ViewProfileComponent,
+		EditProfileComponent,
+		ViewContactComponent,
+		EditContactComponent,
+		ForgotPasswordComponent
 	],
 	imports: [
 		BrowserAnimationsModule,
