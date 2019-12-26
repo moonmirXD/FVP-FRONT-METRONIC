@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { DealerapiService } from "../../services/dealerapi.service";
 
 @Component({
@@ -10,7 +10,8 @@ import { DealerapiService } from "../../services/dealerapi.service";
 export class ViewProfileComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
-		private dealerApiService: DealerapiService
+		private dealerApiService: DealerapiService,
+		private router: Router
 	) {}
 	forms: any;
 	ngOnInit() {
@@ -22,5 +23,8 @@ export class ViewProfileComponent implements OnInit {
 				this.forms = res.data;
 				console.log(res);
 			});
+	}
+	onEdit() {
+		this.router.navigate(["/personal-details/dealer-edit"]);
 	}
 }

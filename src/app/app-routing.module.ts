@@ -50,6 +50,7 @@ const routes: Routes = [
 	{ path: "personal-details/dealer", component: ViewProfileComponent },
 	{ path: "personal-details/contact", component: ViewContactComponent },
 	{ path: "personal-details/contact-edit", component: EditContactComponent },
+	{ path: "personal-details/dealer-edit", component: EditProfileComponent },
 
 	{
 		path: "auth",
