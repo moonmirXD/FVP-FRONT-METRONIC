@@ -1,5 +1,69 @@
-<kt-main-nav
-	><body>
-		<p>view-profile works!</p>
-	</body></kt-main-nav
->
+<kt-main-nav>
+	<body>
+		<div class="container _mainContainer">
+			<div class="row">
+				<div class="col-12">
+					<form action="">
+						<h3>Dealer Personal Details</h3>
+						<div class="row">
+							<div class="col-md-4 col-12 form-group">
+								<label>Last Name</label>
+								<input
+									type="text"
+									class="form-control"
+									disabled
+									value="{{ forms?.lastName }}"
+								/>
+							</div>
+							<div class="col-md-4 col-12 form-group">
+								<label>First Name</label>
+								<input
+									type="text"
+									class="form-control"
+									disabled
+									value="{{ forms?.firstName }}"
+								/>
+							</div>
+							<div class="col-md-4 col-12 form-group">
+								<label>Middle Name</label>
+								<input
+									type="text"
+									class="form-control"
+									disabled
+									value="{{ forms?.middleName }}"
+								/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4 col-12 form-group">
+								<label>Password</label>
+								<input
+									type="password"
+									class="form-control"
+									disabled
+									value="{{ forms?.password }}"
+								/>
+							</div>
+							<div class="col-md-4 col-12 form-group">
+								<label>Email</label>
+								<input
+									type="email"
+									class="form-control"
+									disabled
+									value="{{ forms?.email }}"
+								/>
+							</div>
+						</div>
+						<div class="row _submitContainer">
+							<div class="offset-md-8 col-md-4 col-12 form-group">
+								<a class="btn btn-success _submit" href="#"
+									>Edit</a
+								>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</kt-main-nav>

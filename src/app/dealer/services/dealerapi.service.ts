@@ -11,7 +11,7 @@ export class DealerapiService {
 	activateCardURL = "http://localhost:3000/activate";
 	registerFormURL = "http://127.0.0.1:3000/activate/register";
 	getPowerCardURL = "http://localhost:3000/powercard/list";
-
+	getByIdUserURL = "http://localhost:3200/users";
 	public getUsers() {
 		return this.http.get(this.mockDB).pipe(
 			map((users: any) => {
@@ -46,5 +46,8 @@ export class DealerapiService {
 	//Dealer's URL
 	getUserUrl() {
 		return this.http.get(this.mockDB);
+	}
+	getByIdPowerCard(id) {
+		return this.http.get(`${this.getByIdUserURL}/${id}`);
 	}
 }
