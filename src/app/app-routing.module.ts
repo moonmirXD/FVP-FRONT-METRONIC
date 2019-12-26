@@ -27,13 +27,14 @@ import { ViewProfileComponent } from "./dealer/profile/view-profile/view-profile
 import { EditProfileComponent } from "./dealer/profile/edit-profile/edit-profile.component";
 import { ViewContactComponent } from "./dealer/profile/view-contact/view-contact.component";
 import { EditContactComponent } from "./dealer/profile/edit-contact/edit-contact.component";
+import { ForgotPasswordComponent } from "./dealer/forgot-password/forgot-password.component";
 const routes: Routes = [
 	{ path: "adminlogin", component: AdminLoginComponent },
 	{ path: "dealerlogin", component: DealerLoginComponent },
 
 	//dealer-route // activation route
 	{ path: "register", component: ActivateCardComponent }, // When activated going to registration route
-
+	{ path: "forgot-password", component: ForgotPasswordComponent },
 	//dealer after activation route
 	{
 		path: "profile-details",

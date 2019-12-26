@@ -1,122 +1,52 @@
-<!-- <body>
-	<div id="login">
-		<h3 class="text-center text-white pt-5">Dealer form</h3>
-		<div class="container">
-			<div
-				id="login-row"
-				class="row justify-content-center align-items-center"
-			>
-				<div id="login-column" class="col-md-6">
-					<div id="login-box" class="col-md-12">
-						<form
-							id="login-form"
-							class="form"
-							[formGroup]="loginUserData"
-							(ngSubmit)="loginUser()"
-						>
-							<h3 class="text-center text-info">Login</h3>
-							<div class="form-group">
-								<label for="username" class="text-info"
-									>Username:</label
-								><br />
-								<input
-									formControlName="userName"
-									type="text"
-									name="userName"
-									id="username"
-									class="form-control"
-								/>
-							</div>
-							<div class="form-group">
-								<label for="password" class="text-info"
-									>Password:</label
-								><br />
-								<input
-									formControlName="password"
-									type="password"
-									name="password"
-									id="password"
-									class="form-control"
-								/>
-							</div>
-							<div class="form-group">
-								<label for="remember-me" class="text-info"
-									><span>Remember me</span>
-									<span
-										><input
-											id="remember-me"
-											name="remember-me"
-											type="checkbox"/></span></label
-								><br />
-								<input
-									type="submit"
-									name="submit"
-									class="btn btn-info btn-md"
-									value="submit"
-								/>
-							</div>
-							<div id="register-link" class="text-right">
-								<a href="#" class="text-info">Register here</a>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+<body>
+	<form
+		action=""
+		id="Reset_Password_Form"
+		[formGroup]="loginUserData"
+		(ngSubmit)="loginUser()"
+	>
+		<div class="form-group">
+			<input
+				type="email"
+				class="form-control"
+				placeholder="EMAIL ADDRESS"
+				formControlName="email"
+				name="email"
+			/>
 		</div>
-	</div>
-</body> -->
-
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login Page</title>
-		<!-- Latest compiled and minified CSS -->
-		<link
-			rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		/>
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<!-- Popper JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<form
-			action=""
-			id="Reset_Password_Form"
-			[formGroup]="loginUserData"
-			(ngSubmit)="loginUser()"
-		>
-			<div class="form-group">
-				<input
-					type="text"
-					class="form-control"
-					placeholder="Username"
-					formControlName="userName"
-					name="userName"
-				/>
-			</div>
-			<div class="form-group">
-				<input
-					type="password"
-					class="form-control"
-					placeholder="Password"
-					formControlName="password"
-					name="password"
-				/>
-			</div>
-			<div class="form-group">
-				<button
-					class="btn btn-success"
-					id="Submit_New_Password"
-					type="submit"
-				>
-					Login
-				</button>
-			</div>
-		</form>
-	</body>
-</html>
+		<div class="form-group">
+			<input
+				type="password"
+				class="form-control"
+				placeholder="PASSWORD"
+				formControlName="password"
+				name="password"
+			/>
+		</div>
+		<div class="form-group">
+			<button
+				class="btn btn-success"
+				id="Submit_New_Password"
+				type="submit"
+			>
+				Login
+			</button>
+		</div>
+		<div class="form-group">
+			<a
+				class="btn btn-link"
+				[routerLink]="['/forgot-password']"
+				id="No_Powercard_Link"
+				>Forgot Password?</a
+			>
+		</div>
+		<div class="form-group">
+			<a
+				class="btn btn-link"
+				[routerLink]="['/register']"
+				id="No_Powercard_Link"
+				>Not yet registered? Register here.</a
+			>
+		</div>
+	</form>
+</body>

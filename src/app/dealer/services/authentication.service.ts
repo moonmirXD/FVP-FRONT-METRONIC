@@ -6,8 +6,7 @@ import { HttpClient } from "@angular/common/http";
 	providedIn: "root"
 })
 export class AuthenticationService {
-	private dealerLoginUrl: string =
-		"https://fvp-back.herokuapp.com/admin/login";
+	private dealerLoginUrl: string = "http://localhost:3000/dealer/login";
 	constructor(private http: HttpClient, private router: Router) {}
 
 	loginDealer(user) {

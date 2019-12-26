@@ -8,8 +8,11 @@ import { tap, delay, map } from "rxjs/operators";
 export class DealerapiService {
 	constructor(private http: HttpClient) {}
 	mockDB = "http://localhost:3200/users";
-	activateCardURL = "http://localhost:3000/activate";
-	registerFormURL = "http://127.0.0.1:3000/activate/register";
+	activateCardURL = "http://localhost:3000/activate"; //Activate Pin
+	registerFormURL = "http://localhost:3000/activate/register"; //Register Page
+
+	// Dealer when he/she is loggedIn
+
 	getPowerCardURL = "http://localhost:3000/powercard/list";
 	getByIdUserURL = "http://localhost:3200/users";
 	public getUsers() {

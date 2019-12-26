@@ -17,7 +17,7 @@ export class DealerLoginComponent implements OnInit {
 
 	ngOnInit() {}
 	loginUserData = this.fb.group({
-		userName: [""],
+		email: [""],
 		password: [""]
 	});
 
