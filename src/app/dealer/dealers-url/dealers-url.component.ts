@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DealerapiService } from "../services/dealerapi.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
 	selector: "kt-dealers-url",
@@ -8,9 +9,12 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 	styleUrls: ["./dealers-url.component.scss"]
 })
 export class DealersUrlComponent implements OnInit {
+	URL = this.activatedRoute.snapshot.url;
 	constructor(
 		private dealerApiService: DealerapiService,
-		private fb: FormBuilder
+		private fb: FormBuilder,
+		private router: Router,
+		private activatedRoute: ActivatedRoute
 	) {}
 	urlData: any;
 	ngOnInit() {

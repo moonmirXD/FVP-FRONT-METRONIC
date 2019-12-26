@@ -12,7 +12,23 @@
 				placeholder="EMAIL ADDRESS"
 				formControlName="email"
 				name="email"
+				[ngClass]="{
+					'is-invalid':
+						submitted && loginUserData.controls['email'].errors
+				}"
+				autofocus
 			/>
+			<div
+				*ngIf="submitted && loginUserData.controls['email'].errors"
+				class="invalid-feedback"
+			>
+				<!-- <div *ngIf="loginUserData.controls['email'].errors.required">
+					Email is required
+				</div>
+				<div *ngIf="loginUserData.controls['email'].errors.email">
+					Email must be a valid email address
+				</div> -->
+			</div>
 		</div>
 		<div class="form-group">
 			<input
@@ -21,7 +37,19 @@
 				placeholder="PASSWORD"
 				formControlName="password"
 				name="password"
+				[ngClass]="{
+					'is-invalid':
+						submitted && loginUserData.controls['password'].errors
+				}"
 			/>
+			<div
+				*ngIf="submitted && loginUserData.controls['password'].errors"
+				class="invalid-feedback"
+			>
+				<!-- <div *ngIf="loginUserData.controls['password'].errors.required">
+					Password is required
+				</div> -->
+			</div>
 		</div>
 		<div class="form-group">
 			<button

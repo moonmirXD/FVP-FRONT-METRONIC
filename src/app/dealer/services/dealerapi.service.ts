@@ -7,6 +7,10 @@ import { tap, delay, map } from "rxjs/operators";
 })
 export class DealerapiService {
 	constructor(private http: HttpClient) {}
+
+	//Forgot-password
+	forgotPasswordURL = "http://localhost:3000/resetPassword/";
+
 	mockDB = "http://localhost:3200/users";
 	activateCardURL = "http://localhost:3000/activate"; //Activate Pin
 	registerFormURL = "http://localhost:3000/activate/register"; //Register Page
@@ -15,6 +19,11 @@ export class DealerapiService {
 
 	getPowerCardURL = "http://localhost:3000/powercard/list";
 	getByIdUserURL = "http://localhost:3200/users";
+
+	postForgotPassword(form) {
+		return this.http.post(this.forgotPasswordURL, form);
+	}
+
 	public getUsers() {
 		return this.http.get(this.mockDB).pipe(
 			map((users: any) => {

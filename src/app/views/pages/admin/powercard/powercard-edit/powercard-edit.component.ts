@@ -24,7 +24,7 @@ export class PowercardEditComponent implements OnInit {
 		this.powerCardForm = this.formBuilder.group({
 			key_id: ["", Validators.required],
 			pin: ["", Validators.required],
-			email: ["", Validators.email],
+			email: ["", [Validators.email, Validators.required]],
 			userName: ["", Validators.required],
 			status: [""],
 			isDisabled: [""]

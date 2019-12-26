@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthenticationService } from "../services/authentication.service";
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 @Component({
@@ -9,6 +9,8 @@ import { Router } from "@angular/router";
 	styleUrls: ["./dealer-login.component.scss"]
 })
 export class DealerLoginComponent implements OnInit {
+	submitted = false;
+
 	constructor(
 		private authService: AuthenticationService,
 		private fb: FormBuilder,
@@ -17,20 +19,22 @@ export class DealerLoginComponent implements OnInit {
 
 	ngOnInit() {}
 	loginUserData = this.fb.group({
-		email: [""],
-		password: [""]
+		email: ["", [Validators.email, Validators.required]],
+		password: ["", Validators.required]
 	});
 
 	loginUser() {
-		if (
-			this.loginUserData.value.userName == "123" &&
-			this.loginUserData.value.password == "123"
-		) {
-			this.router.navigate(["/URL-Details"]);
-		}
-		this.authService
-			.loginDealer(this.loginUserData.getRawValue())
-			.subscribe(
+		this.submitted = true;
+		if (this.loginUserData.invalid) {
+			return;
+		} else {
+			if (
+				this.loginUserData.value.userName == "123@yahoo.com" &&
+				this.loginUserData.value.password == "123"
+			) {
+				this.router.navigate(["/URL-Details"]);
+			}
+			this.authService.loginDealer(this.loginUserData.value).subscribe(
 				res => {
 					console.log(res);
 					localStorage.setItem("token", res.token);
@@ -38,6 +42,7 @@ export class DealerLoginComponent implements OnInit {
 				},
 				err => console.log(err)
 			);
-		console.log(this.loginUserData);
+			console.log(this.loginUserData);
+		}
 	}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DealerapiService } from "../services/dealerapi.service";
 import { Router } from "@angular/router";
 
@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 	styleUrls: ["./activate-card.component.scss"]
 })
 export class ActivateCardComponent implements OnInit {
+	submitted = false;
 	constructor(
 		private fb: FormBuilder,
 		private dealerApi: DealerapiService,
@@ -17,21 +18,27 @@ export class ActivateCardComponent implements OnInit {
 	activateForm: FormGroup;
 	ngOnInit() {
 		this.activateForm = this.fb.group({
-			pin: [""]
+			pin: ["", Validators.required]
 		});
 	}
 
 	onSubmit() {
-		console.log(this.activateForm.value);
-		this.dealerApi.postActivateCard(this.activateForm.value).subscribe(
-			(res: any) => {
-				localStorage.setItem("token", res.token);
-				this.router.navigate(["/profile-details"]);
-			},
-			err => {
-				console.log(err.error.message);
-				alert(err.error.message);
-			}
-		);
+		this.submitted = true;
+		if (this.activateForm.invalid) {
+			return;
+		} else {
+			console.log(this.activateForm.value);
+			this.dealerApi.postActivateCard(this.activateForm.value).subscribe(
+				(res: any) => {
+					alert("Successfully submitted.");
+					localStorage.setItem("token", res.token);
+					this.router.navigate(["/profile-details"]);
+				},
+				err => {
+					console.log(err.error.message);
+					alert(err.error.message);
+				}
+			);
+		}
 	}
 }
