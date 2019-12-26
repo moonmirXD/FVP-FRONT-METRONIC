@@ -1,89 +1,188 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-/* html,
-  body {
-	background-color: blanchedalmond;
-  } */
+// * {
+// 	margin: 0;
+// 	padding: 0;
+// }
+// /* html,
+//   body {
+// 	background-color: blanchedalmond;
+//   } */
 
-body {
-	font-family: Arial, Helvetica, sans-serif;
-	background-image: url("../../../assets/images/ZgOm-AoQ.png");
-	background-size: cover; /* <------ */
-	background-repeat: no-repeat;
-	background-position: center center;
-	height: 100vh;
-}
-
-// body[kt-root] {
+// body {
 // 	font-family: Arial, Helvetica, sans-serif;
 // 	background-image: url("../../../assets/images/ZgOm-AoQ.png");
-
-// 	background-size: cover;
+// 	background-size: cover; /* <------ */
+// 	background-repeat: no-repeat;
+// 	background-position: center center;
+// 	height: 100vh;
 // }
 
-input[type="text"] {
-	font-size: 30px;
-	text-align: center;
-	background: transparent;
-	border: 3px solid rgb(5, 172, 5);
-	border-radius: 20px;
-	height: 80px;
-	padding: 12px 20px;
-	font-weight: bolder;
-	color: black;
+// // body[kt-root] {
+// // 	font-family: Arial, Helvetica, sans-serif;
+// // 	background-image: url("../../../assets/images/ZgOm-AoQ.png");
+
+// // 	background-size: cover;
+// // }
+
+// input[type="text"] {
+// 	font-size: 30px;
+// 	text-align: center;
+// 	background: transparent;
+// 	border: 3px solid rgb(5, 172, 5);
+// 	border-radius: 20px;
+// 	height: 80px;
+// 	padding: 12px 20px;
+// 	font-weight: bolder;
+// 	color: black;
+// }
+// button[type="submit"] {
+// 	border-radius: 50px;
+// 	font-weight: bolder;
+// 	width: 200px;
+// 	background-image: linear-gradient(-90deg, rgb(166, 228, 42), green);
+// }
+// .form {
+// 	padding-top: 70px;
+// }
+// .button {
+// 	text-align: center;
+// }
+// .logo {
+// 	height: 150px;
+// 	width: 100%;
+// 	padding-top: 40px;
+// }
+// .logo2 {
+// 	width: 100%;
+// }
+// .form-group {
+// 	padding-top: 20px;
+// }
+// @media screen and (min-width: 1138px) {
+// 	.logo {
+// 		height: 50%;
+// 		width: 70%;
+// 	}
+
+// 	body {
+// 		background-color: white;
+// 	}
+// }
+// @media screen and (max-width: 500px) {
+// 	h1 {
+// 		padding-top: 20px;
+// 	}
+// 	input[type="text"] {
+// 		font-size: 30px;
+// 	}
+// 	.logo2 {
+// 		padding-top: 20px;
+// 	}
+// }
+html,
+body {
+	margin: 0%;
+	padding: 0%;
+	width: 100%;
+	height: 100vh;
+	background-image: url("../../../assets/images/reset_password_page_clear.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-size: 20px;
 }
-button[type="submit"] {
-	border-radius: 50px;
-	font-weight: bolder;
-	width: 200px;
+
+#Registration_Form {
+	position: relative;
+	top: 40%;
+	left: 3.7%;
+	width: 46%;
+	height: 40%;
+}
+
+#Registration_Form > div {
+	margin: 2.25% 0%;
+	height: 23.33%;
+	width: 100%;
+}
+
+input[type="password"] {
+	border: 4px solid #7ac03c;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#Submit_Pin {
+	position: relative;
 	background-image: linear-gradient(-90deg, rgb(166, 228, 42), green);
-}
-.form {
-	padding-top: 70px;
-}
-.button {
+	background-repeat: no-repeat;
+	background-size: cover;
+	left: 25%;
+	width: 50%;
+	height: 100%;
 	text-align: center;
+	border-radius: 50px;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bolder;
+	color: white;
+	box-shadow: 5px 5px darkgreen;
 }
-.logo {
-	height: 150px;
+
+#No_Powercard_Link {
+	position: relative;
 	width: 100%;
-	padding-top: 40px;
+	height: 100%;
+	text-align: center;
+	font-size: 1.5rem;
+	color: rgb(0, 77, 0);
+	text-decoration: underline;
 }
-.logo2 {
-	width: 100%;
-}
-.form-group {
-	padding-top: 20px;
-}
-@media screen and (min-width: 1138px) {
-	.logo {
+
+@media only screen and (max-width: 1024px) and (min-width: 300px) {
+	#Registration_Form {
+		position: relative;
+		background-color: transparent;
+		left: 10%;
+		top: 30%;
+		width: 80%;
 		height: 50%;
-		width: 70%;
 	}
 
-	body {
-		background-color: white;
+	input[type="password"] {
+		font-size: 0.9rem;
+	}
+
+	#Submit_Pin {
+		position: relative;
+		background-image: linear-gradient(-90deg, rgb(166, 228, 42), green);
+		background-repeat: no-repeat;
+		background-size: cover;
+		left: 25%;
+		width: 50%;
+		height: 100%;
+		text-align: center;
+		border-radius: 50px;
+		font-size: 1rem;
+		font-weight: bolder;
+		word-break: normal;
+		word-wrap: break-word;
+		color: white;
+	}
+
+	#No_Powercard_Link {
+		position: relative;
+		left: 25%;
+		width: 50%;
+		height: 100%;
+		text-align: center;
+		font-size: 0.9em;
+		color: rgb(0, 77, 0);
+		text-decoration: underline;
+		font-weight: bolder;
+		word-break: normal;
+		word-wrap: break-word;
 	}
 }
-@media screen and (max-width: 500px) {
-	h1 {
-		padding-top: 20px;
-	}
-	input[type="text"] {
-		font-size: 30px;
-	}
-	.logo2 {
-		padding-top: 20px;
-	}
-}
-/* @media screen and (max-width: 500px) {
-	.coll-1 {
-	  position: absolute;
-	  z-index: 1;
-	}
-	.coll-2 {
-	  z-index: 1;
-	}
-  } */
