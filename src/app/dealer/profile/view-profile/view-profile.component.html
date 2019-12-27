@@ -12,6 +12,7 @@
 									type="text"
 									class="form-control"
 									disabled
+									name="lastName"
 									value="{{ forms?.lastName }}"
 								/>
 							</div>
@@ -21,6 +22,7 @@
 									type="text"
 									class="form-control"
 									disabled
+									name="firstName"
 									value="{{ forms?.firstName }}"
 								/>
 							</div>
@@ -29,6 +31,7 @@
 								<input
 									type="text"
 									class="form-control"
+									name="middleName"
 									disabled
 									value="{{ forms?.middleName }}"
 								/>
@@ -41,6 +44,7 @@
 									type="password"
 									class="form-control"
 									disabled
+									name="password"
 									value="{{ forms?.password }}"
 								/>
 							</div>
@@ -50,6 +54,7 @@
 									type="email"
 									class="form-control"
 									disabled
+									name="email"
 									value="{{ forms?.email }}"
 								/>
 							</div>
@@ -58,7 +63,9 @@
 							<div class="offset-md-8 col-md-4 col-12 form-group">
 								<a
 									class="btn btn-success _submit"
-									(click)="onEdit()"
+									[routerLink]="[
+										'/personal-details/dealer-edit'
+									]"
 									>Edit</a
 								>
 							</div>

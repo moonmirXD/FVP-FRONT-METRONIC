@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { DealerapiService } from "../../services/dealerapi.service";
 
 @Component({
 	selector: "kt-view-contact",
@@ -7,9 +8,25 @@ import { Router } from "@angular/router";
 	styleUrls: ["./view-contact.component.scss"]
 })
 export class ViewContactComponent implements OnInit {
-	constructor(private router: Router) {}
+	forms: any;
+	constructor(
+		private router: Router,
+		private route: ActivatedRoute,
+		private dealerApiService: DealerapiService
+	) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.dealerApiService.getUser().subscribe(
+			(res: any) => {
+				this.forms = res.data;
+				console.log(res.data.address);
+				console.log(res);
+			},
+			err => {
+				console.log(err);
+			}
+		);
+	}
 	onEdit() {
 		this.router.navigate(["/personal-details/contact-edit"]);
 	}

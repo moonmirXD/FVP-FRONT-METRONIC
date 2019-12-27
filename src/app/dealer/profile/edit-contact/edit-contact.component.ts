@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { DealerapiService } from "../../services/dealerapi.service";
 
@@ -9,6 +9,8 @@ import { DealerapiService } from "../../services/dealerapi.service";
 	styleUrls: ["./edit-contact.component.scss"]
 })
 export class EditContactComponent implements OnInit {
+	submitted = false;
+	profileForm: FormGroup;
 	constructor(
 		private formBuilder: FormBuilder,
 		private route: ActivatedRoute,
@@ -16,5 +18,18 @@ export class EditContactComponent implements OnInit {
 		private router: Router
 	) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.profileForm = this.formBuilder.group({
+			contactNo: ["", Validators.required],
+			address: ["", Validators.required]
+		});
+	}
+
+	onSubmit() {
+		this.submitted = true;
+		if (this.profileForm.invalid) {
+			return;
+		} else {
+		}
+	}
 }

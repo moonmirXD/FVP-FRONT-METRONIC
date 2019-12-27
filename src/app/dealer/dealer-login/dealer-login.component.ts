@@ -40,7 +40,11 @@ export class DealerLoginComponent implements OnInit {
 					localStorage.setItem("token", res.token);
 					this.router.navigate(["/URL-Details"]);
 				},
-				err => console.log(err)
+				err => {
+					alert(
+						"Error something went wrong. Email or Password is incorrect."
+					);
+				}
 			);
 			console.log(this.loginUserData);
 		}

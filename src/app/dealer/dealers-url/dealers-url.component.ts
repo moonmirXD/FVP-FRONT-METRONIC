@@ -9,21 +9,22 @@ import { Router, ActivatedRoute } from "@angular/router";
 	styleUrls: ["./dealers-url.component.scss"]
 })
 export class DealersUrlComponent implements OnInit {
-	URL = this.activatedRoute.snapshot.url;
+	URL: any;
+	data: any;
 	constructor(
 		private dealerApiService: DealerapiService,
 		private fb: FormBuilder,
 		private router: Router,
 		private activatedRoute: ActivatedRoute
 	) {}
-	urlData: any;
 	ngOnInit() {
 		this.getUrl();
 	}
 	getUrl() {
 		this.dealerApiService.getUserUrl().subscribe((res: any) => {
-			this.urlData = res[0];
-			console.log("Get Data:", res[0]);
+			console.log("Get Data:", res);
+			this.data = res.data;
+			this.URL = "my-fvp.com/" + res.data.userName;
 		});
 	}
 	copyUrl(val: string) {

@@ -53,8 +53,7 @@ export class PersonalDetailsComponent implements OnInit {
 					},
 					err => {
 						console.log(err);
-						console.log(err.error.error.errors.userName.message);
-						alert(err.error.error.errors.userName.message);
+						alert("Username or Email is already taken.");
 					}
 				);
 		}

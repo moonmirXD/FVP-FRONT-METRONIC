@@ -9,7 +9,9 @@ export class DealerapiService {
 	constructor(private http: HttpClient) {}
 
 	//Forgot-password
-	forgotPasswordURL = "http://localhost:3000/resetPassword/";
+	forgotPasswordURL = "http://localhost:3000/resetPassword";
+	resetForgotPasswordURL =
+		"http://localhost:3000/resetPassword/changepassword";
 
 	mockDB = "http://localhost:3200/users";
 	activateCardURL = "http://localhost:3000/activate"; //Activate Pin
@@ -20,8 +22,15 @@ export class DealerapiService {
 	getPowerCardURL = "http://localhost:3000/powercard/list";
 	getByIdUserURL = "http://localhost:3200/users";
 
+	// GET URL
+	getURL = "http://localhost:3000/dealer/profile";
+	getuserURL = "http://localhost:3000/dealer/profile";
+
 	postForgotPassword(form) {
 		return this.http.post(this.forgotPasswordURL, form);
+	}
+	postResetForgotPassword(form) {
+		return this.http.post(this.resetForgotPasswordURL, form);
 	}
 
 	public getUsers() {
@@ -49,15 +58,18 @@ export class DealerapiService {
 		return this.http.get(this.mockDB);
 	}
 	postActivateCard(form) {
-		return this.http.post(this.mockDB, form);
+		return this.http.post(this.activateCardURL, form);
 	}
 	postRegistrationForm(form) {
-		return this.http.post(this.mockDB, form);
+		return this.http.post(this.registerFormURL, form);
 	}
 
 	//Dealer's URL
 	getUserUrl() {
-		return this.http.get(this.mockDB);
+		return this.http.get(this.getURL);
+	}
+	getUser() {
+		return this.http.get(this.getuserURL);
 	}
 	getByIdPowerCard(id) {
 		return this.http.get(`${this.getByIdUserURL}/${id}`);

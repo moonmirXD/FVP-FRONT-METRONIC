@@ -15,16 +15,14 @@ export class ViewProfileComponent implements OnInit {
 	) {}
 	forms: any;
 	ngOnInit() {
-		let profileID = this.route.snapshot.paramMap.get("id");
-		console.log("Id:", profileID);
-		this.dealerApiService
-			.getByIdPowerCard(profileID)
-			.subscribe((res: any) => {
+		this.dealerApiService.getUser().subscribe(
+			(res: any) => {
 				this.forms = res.data;
 				console.log(res);
-			});
-	}
-	onEdit() {
-		this.router.navigate(["/personal-details/dealer-edit"]);
+			},
+			err => {
+				console.log(err);
+			}
+		);
 	}
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DealerapiService } from "../services/dealerapi.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
 	selector: "kt-forgot-password",
@@ -15,6 +15,7 @@ export class ForgotPasswordComponent implements OnInit {
 	constructor(
 		private fb: FormBuilder,
 		private dealerApi: DealerapiService,
+
 		private router: Router
 	) {}
 
@@ -39,8 +40,7 @@ export class ForgotPasswordComponent implements OnInit {
 						console.log(res);
 					},
 					err => {
-						console.log(err.error.message);
-						alert(err.error.message);
+						console.log(err);
 					}
 				);
 		}
