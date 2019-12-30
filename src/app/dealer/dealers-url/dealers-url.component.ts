@@ -21,11 +21,17 @@ export class DealersUrlComponent implements OnInit {
 		this.getUrl();
 	}
 	getUrl() {
-		this.dealerApiService.getUserUrl().subscribe((res: any) => {
-			console.log("Get Data:", res);
-			this.data = res.data;
-			this.URL = "my-fvp.com/" + res.data.userName;
-		});
+		this.dealerApiService.getUserUrl().subscribe(
+			(res: any) => {
+				console.log("Get Data:", res);
+				this.data = res.data;
+				this.URL = "my-fvp.com/" + res.data.userName;
+				alert("Copied");
+			},
+			err => {
+				alert("Connection Timed Out");
+			}
+		);
 	}
 	copyUrl(val: string) {
 		const selBox = document.createElement("textarea");

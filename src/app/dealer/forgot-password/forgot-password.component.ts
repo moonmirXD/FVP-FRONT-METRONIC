@@ -40,7 +40,7 @@ export class ForgotPasswordComponent implements OnInit {
 						console.log(res);
 					},
 					err => {
-						console.log(err);
+						alert("Please insert a valid email address.");
 					}
 				);
 		}
