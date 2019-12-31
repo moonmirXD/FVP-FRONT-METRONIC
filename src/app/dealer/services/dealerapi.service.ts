@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { tap, delay, map } from "rxjs/operators";
+import { tap, delay, map, catchError } from "rxjs/operators";
+import { Observable, throwError } from "rxjs";
+import { Router } from "@angular/router";
 
 @Injectable({
 	providedIn: "root"
 })
 export class DealerapiService {
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private router: Router) {}
 
 	//Forgot-password
 	forgotPasswordURL = "http://localhost:3000/resetPassword";
@@ -48,6 +50,7 @@ export class DealerapiService {
 			})
 		);
 	}
+
 	getUserByUsername(uName: string) {
 		return this.http.get(this.mockDB, {
 			params: new HttpParams().set("username", uName)
@@ -68,8 +71,17 @@ export class DealerapiService {
 	getUserUrl() {
 		return this.http.get(this.getURL);
 	}
-	getUser() {
-		return this.http.get(this.getuserURL);
+	getUser(): Observable<any> {
+		return this.http.get<any[]>(this.getuserURL).pipe(
+			catchError(err => {
+				if (err.status == 403) {
+					this.router.navigate(["/dealerlogin"]);
+					console.log("Session expired");
+				} else {
+					return throwError(err);
+				}
+			})
+		);
 	}
 	getByIdPowerCard(id) {
 		return this.http.get(`${this.getByIdUserURL}/${id}`);

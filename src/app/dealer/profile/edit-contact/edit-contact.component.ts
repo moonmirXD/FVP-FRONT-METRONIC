@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { DealerapiService } from "../../services/dealerapi.service";
+import { Observable } from "rxjs/internal/Observable";
 
 @Component({
 	selector: "kt-edit-contact",
@@ -10,6 +11,7 @@ import { DealerapiService } from "../../services/dealerapi.service";
 })
 export class EditContactComponent implements OnInit {
 	submitted = false;
+	forms: any;
 	profileForm: FormGroup;
 	constructor(
 		private formBuilder: FormBuilder,
@@ -19,10 +21,14 @@ export class EditContactComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
+		this.viewData();
 		this.profileForm = this.formBuilder.group({
-			contactNo: ["", Validators.required],
+			contactNumber: ["", Validators.required],
 			address: ["", Validators.required]
 		});
+	}
+	viewData() {
+		this.forms = this.dealerApiService.getUser();
 	}
 
 	onSubmit() {

@@ -11,13 +11,14 @@
 								<input
 									type="tel"
 									class="form-control"
-									name="contactNo"
-									formControlName="contactNo"
+									name="contactNumber"
+									value="{{ forms?.contactNumber }}"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&
-											profileForm.controls['contactNo']
-												.errors
+											profileForm.controls[
+												'contactNumber'
+											].errors
 									}"
 								/>
 								<span
@@ -27,14 +28,16 @@
 								<div
 									*ngIf="
 										submitted &&
-										profileForm.controls['contactNo'].errors
+										profileForm.controls['contactNumber']
+											.errors
 									"
 									class="invalid-feedback"
 								>
 									<div
 										*ngIf="
-											profileForm.controls['contactNo']
-												.errors.required
+											profileForm.controls[
+												'contactNumber'
+											].errors.required
 										"
 									>
 										Contact Number is required.

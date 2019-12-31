@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { DealerapiService } from "../../services/dealerapi.service";
+import { Observable } from "rxjs/internal/Observable";
 
 @Component({
 	selector: "kt-view-contact",
@@ -9,6 +10,7 @@ import { DealerapiService } from "../../services/dealerapi.service";
 })
 export class ViewContactComponent implements OnInit {
 	forms: any;
+
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute,

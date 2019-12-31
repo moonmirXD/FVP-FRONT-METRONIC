@@ -26,7 +26,6 @@ export class DealersUrlComponent implements OnInit {
 				console.log("Get Data:", res);
 				this.data = res.data;
 				this.URL = "my-fvp.com/" + res.data.userName;
-				alert("Copied");
 			},
 			err => {
 				alert("Connection Timed Out");
@@ -34,6 +33,7 @@ export class DealersUrlComponent implements OnInit {
 		);
 	}
 	copyUrl(val: string) {
+		alert("Copied");
 		const selBox = document.createElement("textarea");
 		selBox.style.position = "fixed";
 		selBox.style.left = "0";
