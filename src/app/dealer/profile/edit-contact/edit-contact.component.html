@@ -12,7 +12,7 @@
 									type="tel"
 									class="form-control"
 									name="contactNumber"
-									value="{{ forms?.contactNumber }}"
+									value="{{ forms.contactNumber }}"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&
@@ -50,6 +50,7 @@
 									class="form-control"
 									name="address"
 									formControlName="address"
+									value="{{ forms.address }}"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&

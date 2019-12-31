@@ -28,7 +28,15 @@ export class EditContactComponent implements OnInit {
 		});
 	}
 	viewData() {
-		this.forms = this.dealerApiService.getUser();
+		this.dealerApiService.getUser().subscribe(
+			(res: any) => {
+				this.forms = res.data;
+				console.log(res);
+			},
+			err => {
+				console.log(err);
+			}
+		);
 	}
 
 	onSubmit() {
