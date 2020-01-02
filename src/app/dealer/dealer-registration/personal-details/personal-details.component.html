@@ -65,13 +65,13 @@
 									First Name is required
 								</div>
 								<div
-								*ngIf="
-									profileForm.controls['firstName']
-										.errors.pattern
-								"
-							>
-								Must be letters only.
-							</div>
+									*ngIf="
+									personalForm.controls['firstName'].errors
+											.pattern
+									"
+								>
+									Must be letters only.
+								</div>
 							</div>
 						</div>
 						<div class="col-md-4 mb-3">
@@ -105,13 +105,13 @@
 									Last Name is required
 								</div>
 								<div
-								*ngIf="
-									profileForm.controls['lastName']
-										.errors.pattern
-								"
-							>
-								Must be letters only.
-							</div>
+									*ngIf="
+									personalForm.controls['lastName'].errors
+											.pattern
+									"
+								>
+									Must be letters only.
+								</div>
 							</div>
 						</div>
 						<div class="col-md-4 mb-3">
@@ -146,13 +146,13 @@
 									Middle Name is required
 								</div>
 								<div
-								*ngIf="
-									profileForm.controls['middleName']
-										.errors.pattern
-								"
-							>
-								Must be letters only.
-							</div>
+									*ngIf="
+									personalForm.controls['middleName']
+											.errors.pattern
+									"
+								>
+									Must be letters only.
+								</div>
 							</div>
 						</div>
 					</div>
@@ -187,7 +187,6 @@
 								>
 									Username is required
 								</div>
-
 							</div>
 						</div>
 						<div class="col-md-4 mb-3">
