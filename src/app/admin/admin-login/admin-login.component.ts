@@ -9,6 +9,7 @@ import { AuthenticationService } from "../services/authentication.service";
 	styleUrls: ["./admin-login.component.scss"]
 })
 export class AdminLoginComponent implements OnInit {
+	submitted = false;
 	constructor(
 		private authService: AuthenticationService,
 		private fb: FormBuilder,
@@ -24,6 +25,7 @@ export class AdminLoginComponent implements OnInit {
 	});
 
 	loginUser() {
+		this.submitted = true;
 		if (
 			this.loginUserData.value.userName == "123" &&
 			this.loginUserData.value.password == "123"
