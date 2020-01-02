@@ -12,6 +12,7 @@
 									type="tel"
 									class="form-control"
 									name="contactNumber"
+									formControlName="contactNumber"
 									value="{{ forms?.contactNumber }}"
 									[ngClass]="{
 										'is-invalid':
@@ -58,6 +59,7 @@
 												.errors
 									}"
 								></textarea>
+
 								<div
 									*ngIf="
 										submitted &&

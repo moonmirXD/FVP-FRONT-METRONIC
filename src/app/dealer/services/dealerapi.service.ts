@@ -15,7 +15,7 @@ export class DealerapiService {
 	resetForgotPasswordURL =
 		"http://localhost:3000/resetPassword/changepassword";
 
-	mockDB = "http://localhost:3200/users";
+	mockDB = "http://localhost:3000/users";
 	activateCardURL = "http://localhost:3000/activate"; //Activate Pin
 	registerFormURL = "http://localhost:3000/activate/register"; //Register Page
 
@@ -71,8 +71,8 @@ export class DealerapiService {
 	getUserUrl() {
 		return this.http.get(this.getURL);
 	}
-	getUser(): Observable<any> {
-		return this.http.get<any[]>(this.getuserURL).pipe(
+	getUser() {
+		return this.http.get(this.getuserURL).pipe(
 			catchError(err => {
 				if (err.status == 403) {
 					this.router.navigate(["/dealerlogin"]);

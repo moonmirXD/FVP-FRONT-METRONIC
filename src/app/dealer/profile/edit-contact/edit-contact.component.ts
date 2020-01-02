@@ -31,7 +31,13 @@ export class EditContactComponent implements OnInit {
 		this.dealerApiService.getUser().subscribe(
 			(res: any) => {
 				this.forms = res.data;
+				console.log(res.data.address);
 				console.log(res);
+				console.log("forms:", this.forms);
+				this.profileForm.patchValue({
+					contactNumber: [this.forms.contactNumber],
+					address: [this.forms.address]
+				});
 			},
 			err => {
 				console.log(err);

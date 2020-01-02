@@ -3,7 +3,7 @@
 		<div class="container _mainContainer">
 			<div class="row">
 				<div class="col-12">
-					<form action="">
+					<form action="" [formGroup]="profileForm">
 						<h3>Personal Contact Details</h3>
 						<div class="row">
 							<div class="col-md-6 col-12 form-group">
@@ -12,7 +12,8 @@
 									type="tel"
 									class="form-control"
 									disabled
-									name="contactNo"
+									formControlName="contactNumber"
+									name="contactNumber"
 									value="{{ forms?.contactNumber }}"
 								/>
 								<span
@@ -26,6 +27,7 @@
 									class="form-control"
 									disabled
 									name="address"
+									formControlName="address"
 									value="{{ forms?.address }}"
 								></textarea>
 							</div>
@@ -37,6 +39,8 @@
 									(click)="onEdit()"
 									>Edit</a
 								>
+								<button>zxc</button>
+								{{ zxc }}
 							</div>
 						</div>
 					</form>
