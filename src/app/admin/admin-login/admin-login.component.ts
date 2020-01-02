@@ -36,7 +36,12 @@ export class AdminLoginComponent implements OnInit {
 				localStorage.setItem("token", res.token);
 				this.router.navigate(["/powercard-list"]);
 			},
-			err => console.log(err)
+			err => {
+				alert(
+					"Error something went wrong. Email or Password is incorrect."
+				);
+				console.log(err);
+			}
 		);
 		console.log(this.loginUserData);
 	}

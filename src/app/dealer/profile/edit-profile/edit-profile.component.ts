@@ -20,9 +20,18 @@ export class EditProfileComponent implements OnInit {
 
 	ngOnInit() {
 		this.profileForm = this.formBuilder.group({
-			lastName: ["", Validators.required],
-			firstName: ["", Validators.required],
-			middleName: ["", Validators.required],
+			lastName: [
+				"",
+				[Validators.required, Validators.pattern("^[a-zA-Z -']+")]
+			],
+			firstName: [
+				"",
+				[Validators.required, Validators.pattern("^[a-zA-Z -']+")]
+			],
+			middleName: [
+				"",
+				[Validators.required, Validators.pattern("^[a-zA-Z -']+")]
+			],
 			password: ["", Validators.required],
 			email: ["", [Validators.email, Validators.required]]
 		});

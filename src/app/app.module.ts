@@ -86,6 +86,9 @@ import { ViewContactComponent } from './dealer/profile/view-contact/view-contact
 import { EditContactComponent } from './dealer/profile/edit-contact/edit-contact.component';
 import { ForgotPasswordComponent } from './dealer/forgot-password/forgot-password.component';
 import { ForgotPasswordResetComponent } from './dealer/forgot-password-reset/forgot-password-reset.component';
+import { OnlineStoreViewComponent } from './dealer/online-store/online-store-view/online-store-view.component';
+import { OnlineStoreUpdateComponent } from './dealer/online-store/online-store-update/online-store-update.component';
+import { HomeComponent } from './home/home.component';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -132,7 +135,10 @@ export function hljsLanguages(): HighlightLanguage[] {
 		ViewContactComponent,
 		EditContactComponent,
 		ForgotPasswordComponent,
-		ForgotPasswordResetComponent
+		ForgotPasswordResetComponent,
+		OnlineStoreViewComponent,
+		OnlineStoreUpdateComponent,
+		HomeComponent
 	],
 	imports: [
 		BrowserAnimationsModule,

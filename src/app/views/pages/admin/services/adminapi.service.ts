@@ -18,6 +18,8 @@ export class AdminApiService {
 	getbyIdPowerCardURL = "http://localhost:3000/powercard/list";
 	mockDB = "http://localhost:3000/users";
 
+	postGalleryURL = "http://fvp-back.herokuapp.com/galleryPost";
+
 	postPowerCard(form) {
 		return this.http.post(this.postPowerCardURL, form);
 	}
@@ -47,7 +49,24 @@ export class AdminApiService {
 	}
 	//gallery
 	postGallery(form) {
-		return this.http.post(this.mockDB, form);
+		return this.http
+			.post(this.postGalleryURL, form, {
+				reportProgress: true,
+				observe: "events"
+			})
+			.pipe(catchError(this.errorMgmt));
+	}
+	errorMgmt(error: HttpErrorResponse) {
+		let errorMessage = "";
+		if (error.error instanceof ErrorEvent) {
+			// Get client-side error
+			errorMessage = error.error.message;
+		} else {
+			// Get server-side error
+			errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+		}
+		console.log(errorMessage);
+		return throwError(errorMessage);
 	}
 	getGallery() {
 		return this.http.get(this.mockDB);

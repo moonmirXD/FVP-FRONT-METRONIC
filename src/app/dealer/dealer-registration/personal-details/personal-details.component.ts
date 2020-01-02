@@ -21,9 +21,18 @@ export class PersonalDetailsComponent implements OnInit {
 		this.dealerApi.getUsers().subscribe();
 		this.personalForm = this.fb.group(
 			{
-				firstName: ["", Validators.required],
-				lastName: ["", Validators.required],
-				middleName: ["", Validators.required],
+				firstName: [
+					"",
+					[Validators.required, Validators.pattern("^[a-zA-Z -']+")]
+				],
+				lastName: [
+					"",
+					[Validators.required, Validators.pattern("^[a-zA-Z -']+")]
+				],
+				middleName: [
+					"",
+					[Validators.required, Validators.pattern("^[a-zA-Z -']+")]
+				],
 				userName: ["", [Validators.required, Validators.minLength(3)]],
 				email: ["", [Validators.email, Validators.required]],
 				password: ["", [Validators.required, Validators.minLength(6)]],

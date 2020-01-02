@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
 	<div id="login">
 		<h3 class="text-center text-white pt-5">Admin form</h3>
 		<div class="container">
@@ -53,4 +53,50 @@
 			</div>
 		</div>
 	</div>
+</body> -->
+
+<body>
+	<form
+		action=""
+		id="Reset_Password_Form"
+		[formGroup]="loginUserData"
+		(ngSubmit)="loginUser()"
+	>
+		<div class="form-group">
+			<input
+				type="email"
+				class="form-control"
+				placeholder="USERNAME"
+				formControlName="userName"
+				name="userName"
+				[ngClass]="{
+					'is-invalid':
+						submitted && loginUserData.controls['userName'].errors
+				}"
+				autofocus
+			/>
+		</div>
+		<div class="form-group">
+			<input
+				type="password"
+				class="form-control"
+				placeholder="PASSWORD"
+				formControlName="password"
+				name="password"
+				[ngClass]="{
+					'is-invalid':
+						submitted && loginUserData.controls['password'].errors
+				}"
+			/>
+		</div>
+		<div class="form-group">
+			<button
+				class="btn btn-success"
+				id="Submit_New_Password"
+				type="submit"
+			>
+				Login
+			</button>
+		</div>
+	</form>
 </body>

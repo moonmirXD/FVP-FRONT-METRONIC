@@ -81,13 +81,23 @@
 								class="custom-file-input"
 								name="uploadFile"
 								accept="image/*"
-								(change)="showPreview($event)"
+								(change)="handleInputChange($event)"
 							/>
 							<label
 								class="custom-file-label"
 								for="inputGroupFile04"
 								>Choose file</label
 							>
+						</div>
+						<!-- Progress Bar -->
+						<div class="progress form-group" *ngIf="progress > 0">
+							<div
+								class="progress-bar progress-bar-striped bg-success"
+								role="progressbar"
+								[style.width.%]="progress"
+							>
+								{{ progress }}%
+							</div>
 						</div>
 						<div
 							class="imagePreview"

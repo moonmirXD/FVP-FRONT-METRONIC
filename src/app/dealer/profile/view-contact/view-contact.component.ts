@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute, NavigationEnd } from "@angular/router";
 import { DealerapiService } from "../../services/dealerapi.service";
 import { Observable } from "rxjs/internal/Observable";
 
@@ -9,14 +9,12 @@ import { Observable } from "rxjs/internal/Observable";
 	styleUrls: ["./view-contact.component.scss"]
 })
 export class ViewContactComponent implements OnInit {
-	forms: any;
-
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute,
 		private dealerApiService: DealerapiService
 	) {}
-
+	forms: any;
 	ngOnInit() {
 		this.dealerApiService.getUser().subscribe(
 			(res: any) => {

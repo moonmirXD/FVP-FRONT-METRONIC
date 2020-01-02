@@ -29,7 +29,10 @@ import { ViewContactComponent } from "./dealer/profile/view-contact/view-contact
 import { EditContactComponent } from "./dealer/profile/edit-contact/edit-contact.component";
 import { ForgotPasswordComponent } from "./dealer/forgot-password/forgot-password.component";
 import { ForgotPasswordResetComponent } from "./dealer/forgot-password-reset/forgot-password-reset.component";
+import { MainNavComponent } from "./main-nav/main-nav.component";
+import { HomeComponent } from "./home/home.component";
 const routes: Routes = [
+	{ path: "", component: HomeComponent },
 	{ path: "adminlogin", component: AdminLoginComponent },
 	{ path: "dealerlogin", component: DealerLoginComponent },
 
@@ -42,7 +45,13 @@ const routes: Routes = [
 		path: "resetpassword/:id/:token",
 		component: ForgotPasswordResetComponent
 	},
+	//Side nav
 
+	{
+		path: "sidenav",
+		component: MainNavComponent,
+		children: []
+	},
 	//dealer after activation route
 	{
 		path: "profile-details",
@@ -89,7 +98,7 @@ const routes: Routes = [
 	{
 		path: "",
 		component: BaseComponent,
-		canActivate: [AuthGuard],
+		// canActivate: [AuthGuard],
 		children: [
 			{
 				path: "dashboard",
