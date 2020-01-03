@@ -18,11 +18,13 @@ export class AdminApiService {
 	getbyIdPowerCardURL = "http://localhost:3000/powercard/list";
 	mockDB = "http://localhost:3000/users";
 
-	postGalleryURL = "http://fvp-back.herokuapp.com/galleryPost";
-	getGalleryURL = "http://fvp-back.herokuapp.com/galleryPost/list";
-	getGalleryByIdURL = "http://fvp-back.herokuapp.com/galleryPost/list/post";
-	editGalleryURL = "http://fvp-back.herokuapp.com/galleryPost/list/post/edit";
-	deletetGalleryURL = "http://fvp-back.herokuapp.com/galleryPost/list/delete";
+	postGalleryURL = "https://fvp-back.herokuapp.com/galleryPost";
+	getGalleryURL = "https://fvp-back.herokuapp.com/galleryPost/list";
+	getGalleryByIdURL = "https://fvp-back.herokuapp.com/galleryPost/list/post";
+	editGalleryURL =
+		"https://fvp-back.herokuapp.com/galleryPost/list/post/edit";
+	deletetGalleryURL =
+		"https://fvp-back.herokuapp.com/galleryPost/list/delete";
 
 	postPowerCard(form) {
 		return this.http.post(this.postPowerCardURL, form);
