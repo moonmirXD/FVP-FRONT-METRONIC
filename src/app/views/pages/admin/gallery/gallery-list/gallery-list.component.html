@@ -50,7 +50,7 @@
 							<mat-cell *matCellDef="let element">
 								<td>
 									<button
-										(click)="viewData(element.id)"
+										(click)="viewData(element._id)"
 										mat-icon-button
 										color="primary"
 										matTooltip="Edit this ledger"
@@ -61,7 +61,7 @@
 										>
 									</button>
 									<button
-										(click)="editData(element.id)"
+										(click)="editData(element._id)"
 										mat-icon-button
 										color="primary"
 										matTooltip="Edit this ledger"
@@ -72,7 +72,7 @@
 										>
 									</button>
 									<button
-										(click)="deleteData(element.id)"
+										(click)="deleteData(element._id)"
 										mat-icon-button
 										color="warn"
 										matTooltip="Delete this ledger"

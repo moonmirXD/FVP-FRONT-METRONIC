@@ -1,48 +1,164 @@
-<form [formGroup]="galleryForm" (ngSubmit)="onSubmit()" *ngIf="form">
-	<div class="form-group">
-		<label for="exampleInputEmail1">Post Title</label>
-		<input
-			type="text"
-			class="form-control"
-			name="postTitle"
-			value="{{ form?.postTitle }}"
-			formControlName="postTitle"
-			[(ngModel)]="form.postTitle"
-		/>
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">Description</label>
-		<input
-			type="text"
-			class="form-control"
-			name="description"
-			value="{{ form?.description }}"
-			formControlName="description"
-			[(ngModel)]="form.description"
-		/>
-	</div>
-	<div class="form-group">
-		<label for="exampleInputEmail1">Upload File</label>
-		<input
-			type="email"
-			class="form-control"
-			name="uploadFile"
-			value="{{ form?.uploadFile }}"
-			formControlName="uploadFile"
-			[(ngModel)]="form.uploadFile"
-		/>
-	</div>
-	<div class="form-group">
-		<label for="exampleInputEmail1">URL</label>
-		<input
-			type="text"
-			class="form-control"
-			name="url"
-			value="{{ form?.url }}"
-			formControlName="url"
-			[(ngModel)]="form.url"
-		/>
-	</div>
+<div class="row">
+	<div class="col-md-12">
+		<kt-portlet>
+			<kt-portlet-header>
+				<ng-container ktPortletTitle>
+					<h3 class="kt-portlet__head-title">
+						<span><!-- title here --></span>
+					</h3>
+				</ng-container>
+				<ng-container ktPortletTools>
+					<!-- buttons here -->
+				</ng-container>
+			</kt-portlet-header>
+			<kt-portlet-body>
+				<div class="mat-table__wrapper">
+					<form
+						[formGroup]="galleryForm"
+						(ngSubmit)="onSubmit()"
+						*ngIf="form"
+					>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Post Title</label>
+							<input
+								type="text"
+								class="form-control"
+								name="postTitle"
+								value="{{ form?.postTitle }}"
+								formControlName="postTitle"
+								[(ngModel)]="form.postTitle"
+								[ngClass]="{
+									'is-invalid':
+										submitted &&
+										galleryForm.controls['postTitle'].errors
+								}"
+							/>
+							<div
+								*ngIf="
+									submitted &&
+									galleryForm.controls['postTitle'].errors
+								"
+								class="invalid-feedback"
+							>
+								<div
+									*ngIf="
+										galleryForm.controls['postTitle'].errors
+											.required
+									"
+								>
+									Post Title is required
+								</div>
+							</div>
+						</div>
 
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
+						<div class="form-group">
+							<label for="exampleInputPassword1"
+								>Description</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								name="description"
+								value="{{ form?.description }}"
+								formControlName="description"
+								[(ngModel)]="form.description"
+								[ngClass]="{
+									'is-invalid':
+										submitted &&
+										galleryForm.controls['description']
+											.errors
+								}"
+							/>
+							<div
+								*ngIf="
+									submitted &&
+									galleryForm.controls['description'].errors
+								"
+								class="invalid-feedback"
+							>
+								<div
+									*ngIf="
+										galleryForm.controls['description']
+											.errors.required
+									"
+								>
+									Description is required
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Upload File</label>
+							<input
+								type="email"
+								class="form-control"
+								name="uploadFile"
+								value="{{ form?.uploadFile }}"
+								formControlName="uploadFile"
+								[(ngModel)]="form.uploadFile"
+								[ngClass]="{
+									'is-invalid':
+										submitted &&
+										galleryForm.controls['uploadFile']
+											.errors
+								}"
+								disabled
+							/>
+							<div
+								*ngIf="
+									submitted &&
+									galleryForm.controls['uploadFile'].errors
+								"
+								class="invalid-feedback"
+							>
+								<div
+									*ngIf="
+										galleryForm.controls['uploadFile']
+											.errors.required
+									"
+								>
+									File is required
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">URL</label>
+							<input
+								type="text"
+								class="form-control"
+								name="url"
+								value="{{ form?.url }}"
+								formControlName="url"
+								[(ngModel)]="form.url"
+								[ngClass]="{
+									'is-invalid':
+										submitted &&
+										galleryForm.controls['url'].errors
+								}"
+							/>
+							<div
+								*ngIf="
+									submitted &&
+									galleryForm.controls['url'].errors
+								"
+								class="invalid-feedback"
+							>
+								<div
+									*ngIf="
+										galleryForm.controls['url'].errors
+											.required
+									"
+								>
+									URL is required
+								</div>
+							</div>
+						</div>
+
+						<button type="submit" class="btn btn-primary">
+							Submit
+						</button>
+					</form>
+				</div>
+			</kt-portlet-body>
+		</kt-portlet>
+	</div>
+</div>

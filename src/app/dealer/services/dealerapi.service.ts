@@ -1,5 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import {
+	HttpClient,
+	HttpParams,
+	HttpErrorResponse
+} from "@angular/common/http";
 import { tap, delay, map, catchError } from "rxjs/operators";
 import { Observable, throwError } from "rxjs";
 import { Router } from "@angular/router";
@@ -23,6 +27,7 @@ export class DealerapiService {
 
 	getPowerCardURL = "http://localhost:3000/powercard/list";
 	getByIdUserURL = "http://localhost:3200/users";
+	updateFormUrl = "http://localhost:3000/dealer/profile/edit";
 
 	// GET URL
 	getURL = "http://localhost:3000/dealer/profile";
@@ -82,5 +87,25 @@ export class DealerapiService {
 				}
 			})
 		);
+	}
+	updateUser(form) {
+		return this.http
+			.patch(this.mockDB, form, {
+				reportProgress: true,
+				observe: "events"
+			})
+			.pipe(catchError(this.errorMgmt));
+	}
+	errorMgmt(error: HttpErrorResponse) {
+		let errorMessage = "";
+		if (error.error instanceof ErrorEvent) {
+			// Get client-side error
+			errorMessage = error.error.message;
+		} else {
+			// Get server-side error
+			errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+		}
+		console.log(errorMessage);
+		return throwError(errorMessage);
 	}
 }

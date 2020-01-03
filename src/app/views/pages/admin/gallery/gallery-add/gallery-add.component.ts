@@ -26,21 +26,6 @@ export class GalleryAddComponent implements OnInit {
 			url: ["", Validators.required]
 		});
 	}
-
-	// showPreview(event) {
-	// 	const file = (event.target as HTMLInputElement).files[0];
-	// 	this.galleryForm.patchValue({
-	// 		uploadFile: file
-	// 	});
-	// 	this.galleryForm.get("uploadFile").updateValueAndValidity();
-	// 	console.log(typeof file);
-	// 	// File Preview
-	// 	const reader = new FileReader();
-	// 	reader.onload = () => {
-	// 		this.imageURL = reader.result as string;
-	// 	};
-	// 	reader.readAsDataURL(file);
-	// }
 	private imageSrc: string = "";
 	handleInputChange(e) {
 		const file = e.dataTransfer

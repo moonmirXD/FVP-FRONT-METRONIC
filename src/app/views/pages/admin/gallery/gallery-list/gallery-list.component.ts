@@ -30,7 +30,7 @@ export class GalleryListComponent implements OnInit {
 
 	getData() {
 		this.adminApiService.getGallery().subscribe((res: any) => {
-			this.dataSource = new MatTableDataSource(res);
+			this.dataSource = new MatTableDataSource(res.data);
 			console.log("Get Data:", res);
 			this.dataSource.paginator = this.paginator;
 		});
@@ -51,7 +51,7 @@ export class GalleryListComponent implements OnInit {
 	}
 	editData(id) {
 		this.router.navigate(["/gallery-edit", id]);
-		this.getData();
+		// this.getData();
 		// const message = "Group successfully added.";
 		// const dialogRef = this.dialog.open(PowercardEditComponent);
 

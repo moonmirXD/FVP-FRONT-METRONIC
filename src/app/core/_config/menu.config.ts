@@ -16,14 +16,6 @@ export class MenuConfig {
 			self: {},
 			items: [
 				{
-					title: "Dashboard",
-					root: true,
-					icon: "flaticon2-architecture-and-city",
-					page: "/dashboard",
-					translate: "Dashboard",
-					bullet: "dot"
-				},
-				{
 					title: "Power Card",
 					root: true,
 					icon: "flaticon2-expand",

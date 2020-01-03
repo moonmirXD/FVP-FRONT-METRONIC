@@ -50,6 +50,12 @@ export class EditContactComponent implements OnInit {
 		if (this.profileForm.invalid) {
 			return;
 		} else {
+			this.dealerApiService
+				.updateUser(this.profileForm.value)
+				.subscribe((res: any) => {
+					console.log(res);
+					alert("Successfully updated");
+				});
 		}
 	}
 }

@@ -19,6 +19,10 @@ export class AdminApiService {
 	mockDB = "http://localhost:3000/users";
 
 	postGalleryURL = "http://fvp-back.herokuapp.com/galleryPost";
+	getGalleryURL = "http://fvp-back.herokuapp.com/galleryPost/list";
+	getGalleryByIdURL = "http://fvp-back.herokuapp.com/galleryPost/list/post";
+	editGalleryURL = "http://fvp-back.herokuapp.com/galleryPost/list/post/edit";
+	deletetGalleryURL = "http://fvp-back.herokuapp.com/galleryPost/list/delete";
 
 	postPowerCard(form) {
 		return this.http.post(this.postPowerCardURL, form);
@@ -69,16 +73,16 @@ export class AdminApiService {
 		return throwError(errorMessage);
 	}
 	getGallery() {
-		return this.http.get(this.mockDB);
+		return this.http.get(this.getGalleryURL);
 	}
 	deleteGallery(id) {
-		return this.http.delete(`${this.mockDB}/${id}`);
+		return this.http.delete(`${this.deletetGalleryURL}/${id}`);
 	}
 	updateGallery(id, form) {
-		return this.http.put(this.mockDB + "/" + id, form);
+		return this.http.put(this.editGalleryURL + "/" + id, form);
 	}
-	getById(id) {
-		return this.http.get(`${this.mockDB}/${id}`);
+	getGalleryById(id) {
+		return this.http.get(`${this.getGalleryByIdURL}/${id}`);
 	}
 	errorHandler(error: HttpErrorResponse) {}
 }

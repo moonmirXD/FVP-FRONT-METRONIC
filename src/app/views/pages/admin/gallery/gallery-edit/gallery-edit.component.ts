@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AdminApiService } from "../../services/adminapi.service";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
 	selector: "kt-gallery-edit",
@@ -21,18 +21,17 @@ export class GalleryEditComponent implements OnInit {
 	ngOnInit() {
 		this.getId();
 		this.galleryForm = this.formBuilder.group({
-			postTitle: [""],
-			description: [""],
-			uploadFile: [""],
-			url: [""]
+			postTitle: ["", Validators.required],
+			description: ["", Validators.required],
+			uploadFile: ["", Validators.required],
+			url: ["", Validators.required]
 		});
 	}
 
 	getId() {
-		let galleryId = parseInt(this.route.snapshot.paramMap.get("id"));
-		this.adminApiService.getById(galleryId).subscribe(res => {
-			this.form = res;
-			console.log(this.form.id);
+		let galleryId = this.route.snapshot.paramMap.get("id");
+		this.adminApiService.getGalleryById(galleryId).subscribe((res: any) => {
+			this.form = res.data;
 		});
 	}
 
