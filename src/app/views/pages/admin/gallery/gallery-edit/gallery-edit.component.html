@@ -24,6 +24,7 @@
 								type="text"
 								class="form-control"
 								name="postTitle"
+								value="{{ form?.postTitle }}"
 								formControlName="postTitle"
 								[(ngModel)]="form.postTitle"
 								[ngClass]="{
@@ -58,6 +59,7 @@
 								type="text"
 								class="form-control"
 								name="description"
+								value="{{ form?.description }}"
 								formControlName="description"
 								[(ngModel)]="form.description"
 								[ngClass]="{
@@ -90,6 +92,7 @@
 								type="email"
 								class="form-control"
 								name="uploadFile"
+								value="{{ form?.uploadFile }}"
 								formControlName="uploadFile"
 								[(ngModel)]="form.uploadFile"
 								[ngClass]="{
@@ -100,6 +103,9 @@
 								}"
 								disabled
 							/>
+							<div class="form-group">
+								<img [src]="imageurl" alt="" />
+							</div>
 							<div
 								*ngIf="
 									submitted &&
@@ -123,6 +129,7 @@
 								type="text"
 								class="form-control"
 								name="url"
+								value="{{ form?.url }}"
 								formControlName="url"
 								[(ngModel)]="form.url"
 								[ngClass]="{
