@@ -1,56 +1,79 @@
-<form>
-	<div class="form-group">
-		<label for="exampleInputEmail1">key_id</label>
-		<input
-			type="text"
-			class="form-control"
-			value="{{ forms?.key_id }}"
-			disabled
-		/>
+<div class="row">
+	<div class="col-md-12">
+		<kt-portlet>
+			<kt-portlet-header>
+				<ng-container ktPortletTitle>
+					<h3 class="kt-portlet__head-title">
+						<span><!-- title here --></span>
+					</h3>
+				</ng-container>
+				<ng-container ktPortletTools>
+					<!-- buttons here -->
+				</ng-container>
+			</kt-portlet-header>
+			<kt-portlet-body>
+				<div class="mat-table__wrapper">
+					<!-- contents here -->
+					<form>
+						<div class="form-group">
+							<label for="exampleInputEmail1">key_id</label>
+							<input
+								type="text"
+								class="form-control"
+								value="{{ forms?.key_id }}"
+								disabled
+							/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">pin</label>
+							<input
+								type="text"
+								class="form-control"
+								value="{{ forms?.pin }}"
+								disabled
+							/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">email</label>
+							<input
+								type="text"
+								class="form-control"
+								value="{{ forms?.email }}"
+								disabled
+							/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">userName</label>
+							<input
+								type="text"
+								class="form-control"
+								value="{{ forms?.userName }}"
+								disabled
+							/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">status</label>
+							<input
+								type="text"
+								class="form-control"
+								value="{{ forms?.status }}"
+								disabled
+							/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1"
+								>isDisabled</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								value="{{ forms?.isDisabled }}"
+								disabled
+							/>
+						</div>
+					</form>
+				</div>
+			</kt-portlet-body>
+		</kt-portlet>
 	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">pin</label>
-		<input
-			type="text"
-			class="form-control"
-			value="{{ forms?.pin }}"
-			disabled
-		/>
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">email</label>
-		<input
-			type="text"
-			class="form-control"
-			value="{{ forms?.email }}"
-			disabled
-		/>
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">userName</label>
-		<input
-			type="text"
-			class="form-control"
-			value="{{ forms?.userName }}"
-			disabled
-		/>
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">status</label>
-		<input
-			type="text"
-			class="form-control"
-			value="{{ forms?.status }}"
-			disabled
-		/>
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">isDisabled</label>
-		<input
-			type="text"
-			class="form-control"
-			value="{{ forms?.isDisabled }}"
-			disabled
-		/>
-	</div>
-</form>
+</div>

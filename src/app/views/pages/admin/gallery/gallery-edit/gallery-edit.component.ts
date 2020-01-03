@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class GalleryEditComponent implements OnInit {
 	form: any;
 	galleryForm: FormGroup;
+	editID: any;
 	constructor(
 		private formBuilder: FormBuilder,
 		private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class GalleryEditComponent implements OnInit {
 			uploadFile: ["", Validators.required],
 			url: ["", Validators.required]
 		});
+		this.editID = this.route.snapshot.paramMap.get("id");
 	}
 
 	getId() {
@@ -37,7 +39,7 @@ export class GalleryEditComponent implements OnInit {
 
 	onSubmit() {
 		this.adminApiService
-			.updateGallery(this.form.id, this.galleryForm.value)
+			.updateGallery(this.editID, this.galleryForm.value)
 			.subscribe(res => {
 				console.log(res);
 				this.form = res;

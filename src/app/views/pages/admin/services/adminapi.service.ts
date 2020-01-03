@@ -79,7 +79,7 @@ export class AdminApiService {
 		return this.http.delete(`${this.deletetGalleryURL}/${id}`);
 	}
 	updateGallery(id, form) {
-		return this.http.put(this.editGalleryURL + "/" + id, form);
+		return this.http.patch(this.editGalleryURL + "/" + id, form);
 	}
 	getGalleryById(id) {
 		return this.http.get(`${this.getGalleryByIdURL}/${id}`);
