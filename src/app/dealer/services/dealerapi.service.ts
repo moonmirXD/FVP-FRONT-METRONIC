@@ -83,7 +83,4 @@ export class DealerapiService {
 			})
 		);
 	}
-	getByIdPowerCard(id) {
-		return this.http.get(`${this.getByIdUserURL}/${id}`);
-	}
 }

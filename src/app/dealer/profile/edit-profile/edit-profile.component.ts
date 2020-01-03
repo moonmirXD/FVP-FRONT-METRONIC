@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class EditProfileComponent implements OnInit {
 	submitted = false;
+	forms: any;
 	profileForm: FormGroup;
 	constructor(
 		private formBuilder: FormBuilder,
@@ -19,6 +20,7 @@ export class EditProfileComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
+		this.viewData();
 		this.profileForm = this.formBuilder.group({
 			lastName: [
 				"",
@@ -35,6 +37,24 @@ export class EditProfileComponent implements OnInit {
 			password: ["", Validators.required],
 			email: ["", [Validators.email, Validators.required]]
 		});
+	}
+	viewData() {
+		this.dealerApiService.getUser().subscribe(
+			(res: any) => {
+				this.forms = res.data;
+				console.log(res);
+				this.profileForm.patchValue({
+					lastName: [this.forms.lastName],
+					firstName: [this.forms.firstName],
+					middleName: [this.forms.middleName],
+					password: [this.forms.password],
+					email: [this.forms.email]
+				});
+			},
+			err => {
+				console.log(err);
+			}
+		);
 	}
 	onSubmit() {
 		this.submitted = true;

@@ -3,7 +3,7 @@
 		<div class="container _mainContainer">
 			<div class="row">
 				<div class="col-12">
-					<form action="">
+					<form action="" [formGroup]="profileForm">
 						<h3>Dealer Personal Details</h3>
 						<div class="row">
 							<div class="col-md-4 col-12 form-group">
@@ -13,7 +13,7 @@
 									class="form-control"
 									disabled
 									name="lastName"
-									value="{{ forms?.lastName }}"
+									formControlName="lastName"
 								/>
 							</div>
 							<div class="col-md-4 col-12 form-group">
@@ -23,7 +23,7 @@
 									class="form-control"
 									disabled
 									name="firstName"
-									value="{{ forms?.firstName }}"
+									formControlName="firstName"
 								/>
 							</div>
 							<div class="col-md-4 col-12 form-group">
@@ -33,7 +33,7 @@
 									class="form-control"
 									name="middleName"
 									disabled
-									value="{{ forms?.middleName }}"
+									formControlName="middleName"
 								/>
 							</div>
 						</div>
@@ -45,7 +45,7 @@
 									class="form-control"
 									disabled
 									name="password"
-									value="{{ forms?.password }}"
+									formControlName="password"
 								/>
 							</div>
 							<div class="col-md-4 col-12 form-group">
@@ -55,7 +55,7 @@
 									class="form-control"
 									disabled
 									name="email"
-									value="{{ forms?.email }}"
+									formControlName="email"
 								/>
 							</div>
 						</div>

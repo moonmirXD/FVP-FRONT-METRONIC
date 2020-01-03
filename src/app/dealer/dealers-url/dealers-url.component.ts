@@ -10,22 +10,29 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class DealersUrlComponent implements OnInit {
 	URL: any;
-	data: any;
+	forms: any;
+	urlForm: FormGroup;
 	constructor(
 		private dealerApiService: DealerapiService,
-		private fb: FormBuilder,
+		private formBuilder: FormBuilder,
 		private router: Router,
 		private activatedRoute: ActivatedRoute
 	) {}
 	ngOnInit() {
 		this.getUrl();
+		this.urlForm = this.formBuilder.group({
+			userName: [""]
+		});
 	}
 	getUrl() {
 		this.dealerApiService.getUserUrl().subscribe(
 			(res: any) => {
 				console.log("Get Data:", res);
-				this.data = res.data;
+				this.forms = res.data;
 				this.URL = "my-fvp.com/" + res.data.userName;
+				this.urlForm.patchValue({
+					userName: ["my-fvp.com/" + this.forms.userName]
+				});
 			},
 			err => {
 				alert("Connection Timed Out");
