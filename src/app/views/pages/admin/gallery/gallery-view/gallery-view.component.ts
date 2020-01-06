@@ -25,17 +25,8 @@ export class GalleryViewComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.getId();
-		this.galleryForm = this.formBuilder.group({
-			postTitle: [""],
-			description: [""],
-			uploadFile: [""],
-			url: [""]
-		});
-		this.editID = this.route.snapshot.paramMap.get("id");
-	}
-	getId() {
 		let galleryId = this.route.snapshot.paramMap.get("id");
+		console.log("..");
 		this.adminApiService.getGalleryById(galleryId).subscribe((res: any) => {
 			this.form = res.data;
 			this.image = res.imageData;
@@ -49,6 +40,7 @@ export class GalleryViewComponent implements OnInit {
 			);
 		});
 	}
+
 	onClick() {
 		this.router.navigate(["/gallery-list"]);
 	}

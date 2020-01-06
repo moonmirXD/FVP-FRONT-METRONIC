@@ -13,15 +13,13 @@
 			</kt-portlet-header>
 			<kt-portlet-body>
 				<div class="mat-table__wrapper">
-					<form [formGroup]="galleryForm" *ngIf="form">
+					<form>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Post Title</label>
 							<input
 								type="text"
 								class="form-control"
-								name="postTitle"
 								value="{{ form?.postTitle }}"
-								formControlName="postTitle"
 								disabled
 							/>
 						</div>
@@ -33,9 +31,7 @@
 							<input
 								type="text"
 								class="form-control"
-								name="description"
 								value="{{ form?.description }}"
-								formControlName="description"
 								disabled
 							/>
 						</div>
@@ -44,9 +40,7 @@
 							<input
 								type="email"
 								class="form-control"
-								name="uploadFile"
 								value="{{ form?.uploadFile }}"
-								formControlName="uploadFile"
 								disabled
 							/>
 						</div>
@@ -58,9 +52,7 @@
 							<input
 								type="text"
 								class="form-control"
-								name="url"
 								value="{{ form?.url }}"
-								formControlName="url"
 								disabled
 							/>
 						</div>
