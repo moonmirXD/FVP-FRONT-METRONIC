@@ -34,9 +34,13 @@ export class GalleryAddComponent implements OnInit {
 
 		this.galleryForm.get("uploadFile").updateValueAndValidity();
 		const reader = new FileReader();
+		const readerx = new FileReader();
 		reader.onload = this._handleReaderLoaded.bind(this);
-
+		readerx.onload = () => {
+			this.imageURL = readerx.result as string;
+		};
 		reader.readAsDataURL(file);
+		readerx.readAsDataURL(file);
 	}
 	_handleReaderLoaded(e) {
 		let reader = e.target;

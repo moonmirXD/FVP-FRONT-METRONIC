@@ -54,6 +54,7 @@ export class ForgotPasswordResetComponent implements OnInit {
 				.subscribe(
 					(res: any) => {
 						alert("Successfully submitted.");
+						this.router.navigate(["/dealerlogin"]);
 					},
 					err => {
 						console.log(err);

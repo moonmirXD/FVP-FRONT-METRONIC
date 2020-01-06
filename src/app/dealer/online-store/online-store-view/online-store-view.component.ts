@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
+import { DealerapiService } from "../../services/dealerapi.service";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
 	selector: "kt-online-store-view",
@@ -7,9 +9,35 @@ import { Router } from "@angular/router";
 	styleUrls: ["./online-store-view.component.scss"]
 })
 export class OnlineStoreViewComponent implements OnInit {
-	constructor(private router: Router) {}
+	constructor(
+		private router: Router,
+		private route: ActivatedRoute,
+		private dealerApiService: DealerapiService,
+		private formBuilder: FormBuilder
+	) {}
+	forms: any;
+	profileForm: FormGroup;
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.viewData();
+		this.profileForm = this.formBuilder.group({
+			onlineStore: [""]
+		});
+	}
+	viewData() {
+		this.dealerApiService.getUser().subscribe(
+			(res: any) => {
+				this.forms = res.data;
+				console.log(res);
+				this.profileForm.patchValue({
+					onlineStore: [this.forms.onlineStore]
+				});
+			},
+			err => {
+				console.log(err);
+			}
+		);
+	}
 	onEdit() {
 		this.router.navigate(["/personal-details/online-store/edit"]);
 	}

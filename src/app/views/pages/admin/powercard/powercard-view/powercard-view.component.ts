@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { AdminApiService } from "../../services/adminapi.service";
 
 @Component({
@@ -10,7 +10,8 @@ import { AdminApiService } from "../../services/adminapi.service";
 export class PowercardViewComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
-		private adminApiService: AdminApiService
+		private adminApiService: AdminApiService,
+		private router: Router
 	) {}
 	public pin;
 	forms: any;
@@ -24,5 +25,8 @@ export class PowercardViewComponent implements OnInit {
 				this.forms = res.data;
 				console.log(res);
 			});
+	}
+	onClick() {
+		this.router.navigate(["/powercard-list"]);
 	}
 }

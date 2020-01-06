@@ -20,6 +20,8 @@ export class DealerapiService {
 		"http://localhost:3000/resetPassword/changepassword";
 
 	mockDB = "http://localhost:3000/users";
+
+	//Pin
 	activateCardURL = "http://localhost:3000/activate"; //Activate Pin
 	registerFormURL = "http://localhost:3000/activate/register"; //Register Page
 
@@ -32,6 +34,7 @@ export class DealerapiService {
 	// GET URL
 	getURL = "http://localhost:3000/dealer/profile";
 	getuserURL = "http://localhost:3000/dealer/profile";
+	edutUserURL = "http://localhost:3000/dealer/profile/edit";
 
 	postForgotPassword(form) {
 		return this.http.post(this.forgotPasswordURL, form);
@@ -90,7 +93,7 @@ export class DealerapiService {
 	}
 	updateUser(form) {
 		return this.http
-			.patch(this.mockDB, form, {
+			.patch(this.edutUserURL, form, {
 				reportProgress: true,
 				observe: "events"
 			})

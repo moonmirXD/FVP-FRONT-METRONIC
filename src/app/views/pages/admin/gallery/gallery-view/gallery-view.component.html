@@ -1,1 +1,80 @@
-<p>gallery-view works!</p>
+<div class="row">
+	<div class="col-md-12">
+		<kt-portlet>
+			<kt-portlet-header>
+				<ng-container ktPortletTitle>
+					<h3 class="kt-portlet__head-title">
+						<span>Gallery View</span>
+					</h3>
+				</ng-container>
+				<ng-container ktPortletTools>
+					<!-- buttons here -->
+				</ng-container>
+			</kt-portlet-header>
+			<kt-portlet-body>
+				<div class="mat-table__wrapper">
+					<form [formGroup]="galleryForm" *ngIf="form">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Post Title</label>
+							<input
+								type="text"
+								class="form-control"
+								name="postTitle"
+								value="{{ form?.postTitle }}"
+								formControlName="postTitle"
+								disabled
+							/>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputPassword1"
+								>Description</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								name="description"
+								value="{{ form?.description }}"
+								formControlName="description"
+								disabled
+							/>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Upload File</label>
+							<input
+								type="email"
+								class="form-control"
+								name="uploadFile"
+								value="{{ form?.uploadFile }}"
+								formControlName="uploadFile"
+								disabled
+							/>
+						</div>
+						<div class="form-group">
+							<img [src]="imageurl" alt="" *ngIf="imageurl" />
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">URL</label>
+							<input
+								type="text"
+								class="form-control"
+								name="url"
+								value="{{ form?.url }}"
+								formControlName="url"
+								disabled
+							/>
+						</div>
+
+						<button
+							type="button"
+							class="btn btn-success btn-lg btn-block"
+							(click)="onClick()"
+						>
+							Go to Gallery List
+						</button>
+					</form>
+				</div>
+			</kt-portlet-body>
+		</kt-portlet>
+	</div>
+</div>
