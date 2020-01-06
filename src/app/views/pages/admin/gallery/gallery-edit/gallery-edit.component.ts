@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { AdminApiService } from "../../services/adminapi.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DomSanitizer } from "@angular/platform-browser";
-import { url } from "inspector";
 @Component({
 	selector: "kt-gallery-edit",
 	templateUrl: "./gallery-edit.component.html",
