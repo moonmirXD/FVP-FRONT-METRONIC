@@ -10,13 +10,26 @@
 .sidenav .mat-toolbar {
 	background: inherit;
 }
-h3 {
-	font-family: "Squada One", cursive;
+a {
+	font-family: "Ultra", serif;
 	font-size: 2.5rem;
 }
+h2 {
+	color: #f4f4f2;
+}
+
+h2:hover {
+	background-color: #037ebc;
+	font-size: 2.9rem;
+}
+p:hover {
+	font-size: 1.6rem;
+	background-color: #13c0e5;
+}
 p {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Baloo", cursive;
 	font-size: 1.3rem;
+	color: white;
 }
 
 .mat-toolbar.mat-primary {
@@ -24,4 +37,11 @@ p {
 	top: 0;
 	z-index: 1;
 	background-color: rgb(15, 189, 15);
+}
+img:hover {
+	transform: scale(1.25);
+}
+
+u {
+	color: whitesmoke;
 }

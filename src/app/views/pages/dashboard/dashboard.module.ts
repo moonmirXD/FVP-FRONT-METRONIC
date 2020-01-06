@@ -16,12 +16,10 @@ import { DashboardComponent } from "./dashboard.component";
 			{
 				path: "",
 				component: DashboardComponent
-			},
-		]),
+			}
+		])
 	],
 	providers: [],
-	declarations: [
-		DashboardComponent,
-	]
+	declarations: [DashboardComponent]
 })
 export class DashboardModule {}

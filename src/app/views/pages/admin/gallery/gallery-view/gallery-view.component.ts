@@ -13,7 +13,6 @@ export class GalleryViewComponent implements OnInit {
 	submitted = false;
 	form: any;
 	galleryForm: FormGroup;
-	editID: any;
 	image: any;
 	imageurl: any;
 	constructor(
