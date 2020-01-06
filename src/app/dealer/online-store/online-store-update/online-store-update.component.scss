@@ -1,0 +1,43 @@
+body {
+	margin: 0%;
+	padding: 0%;
+	width: 100%;
+	height: 100vh;
+	background-image: url("../../../../assets/images/profile\ details\ bg.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-size: 20px;
+	padding-top: 80px;
+}
+h3 {
+	color: green;
+}
+form {
+	font-size: 1rem;
+	color: darkgreen;
+}
+
+form input[type="tel"] {
+	position: relative;
+	resize: none;
+	border: 3px outset #7ed245;
+}
+
+textarea.form-control {
+	position: relative;
+	resize: none;
+	border: 3px outset #7ed245;
+}
+
+._mainContainer {
+	width: 100%;
+}
+
+._submit {
+	margin-left: 10%;
+	width: 80%;
+}
+
+._submit:hover {
+	background-image: linear-gradient(to right, #378609, #d1ff04);
+}

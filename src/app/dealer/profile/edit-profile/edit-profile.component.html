@@ -139,8 +139,15 @@
 											profileForm.controls['password']
 												.errors
 									}"
+									disabled
 								/>
-								<div
+								<span
+									>To Edit the password go here
+									<a [routerLink]="['/forgot-password']"
+										>Edit password.</a
+									></span
+								>
+								<!-- <div
 									*ngIf="
 										submitted &&
 										profileForm.controls['password'].errors
@@ -155,7 +162,7 @@
 									>
 										Password is required.
 									</div>
-								</div>
+								</div> -->
 							</div>
 							<div class="col-md-4 col-12 form-group">
 								<label>Email</label>

@@ -40,9 +40,9 @@ export class GalleryEditComponent implements OnInit {
 			this.form = res.data;
 			this.image = res.imageData;
 			console.log(res);
-			let TYPED_ARRAY = new Uint8Array(res.imageData.data);
+			const TYPED_ARRAY = new Uint8Array(res.imageData.data);
 			const STRING_CHAR = String.fromCharCode.apply(null, TYPED_ARRAY);
-			let base64String = btoa(STRING_CHAR);
+			const base64String = btoa(STRING_CHAR);
 			this.imageurl = this.domSanitizer.bypassSecurityTrustUrl(
 				("data:image/jpg;base64, " || "data:image/png;base64, ") +
 					base64String

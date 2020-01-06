@@ -31,6 +31,8 @@ import { ForgotPasswordComponent } from "./dealer/forgot-password/forgot-passwor
 import { ForgotPasswordResetComponent } from "./dealer/forgot-password-reset/forgot-password-reset.component";
 import { MainNavComponent } from "./main-nav/main-nav.component";
 import { HomeComponent } from "./home/home.component";
+import { OnlineStoreViewComponent } from "./dealer/online-store/online-store-view/online-store-view.component";
+import { OnlineStoreUpdateComponent } from "./dealer/online-store/online-store-update/online-store-update.component";
 const routes: Routes = [
 	{ path: "", component: HomeComponent },
 	{ path: "adminlogin", component: AdminLoginComponent },
@@ -68,6 +70,16 @@ const routes: Routes = [
 	},
 
 	//profile of User inside the login
+	{
+		path: "personal-details/online-store",
+		component: OnlineStoreViewComponent,
+		canActivate: [AuthdealerGuard]
+	},
+	{
+		path: "personal-details/online-store/edit",
+		component: OnlineStoreUpdateComponent,
+		canActivate: [AuthdealerGuard]
+	},
 	{
 		path: "personal-details/dealer",
 		component: ViewProfileComponent,

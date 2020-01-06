@@ -1,18 +1,33 @@
 <kt-main-nav>
 	<body>
-		<form action="" id="Reset_Password_Form">
-			<div class="form-group">
-				<input type="text" class="form-control" name="url" />
+		<div class="container _mainContainer">
+			<div class="row">
+				<div class="col-12">
+					<form action="">
+						<h3>Online Store Details</h3>
+						<div class="row">
+							<div class="col-md-6 col-12 form-group">
+								<label>Do you have online store?</label>
+								<input
+									type="tel"
+									class="form-control"
+									disabled
+									name="contactNumber"
+								/>
+							</div>
+						</div>
+						<div class="row _submitContainer">
+							<div class="offset-md-8 col-md-4 col-12 form-group">
+								<a
+									class="btn btn-success _submit"
+									(click)="onEdit()"
+									>Edit</a
+								>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
-			<div class="form-group">
-				<button
-					class="btn btn-success"
-					id="Submit_New_Password"
-					type="submit"
-				>
-					Copy
-				</button>
-			</div>
-		</form>
+		</div>
 	</body>
 </kt-main-nav>
