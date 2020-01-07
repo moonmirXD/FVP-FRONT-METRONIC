@@ -48,6 +48,7 @@ export class OnlineStoreUpdateComponent implements OnInit {
 				.subscribe((res: any) => {
 					console.log(res);
 					alert("Successfully updated");
+					this.router.navigate(["/personal-details/online-store"]);
 				});
 		}
 	}

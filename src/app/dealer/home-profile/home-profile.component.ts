@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DealerapiService } from "../services/dealerapi.service";
 import { DomSanitizer } from "@angular/platform-browser";
+import { FormGroup, FormBuilder } from "@angular/forms";
 
 @Component({
 	selector: "kt-home-profile",
@@ -10,13 +11,34 @@ import { DomSanitizer } from "@angular/platform-browser";
 export class HomeProfileComponent implements OnInit {
 	constructor(
 		private dealerApiService: DealerapiService,
-		private domSanitizer: DomSanitizer
+		private domSanitizer: DomSanitizer,
+		private formBuilder: FormBuilder
 	) {}
 	forms: any;
+	profileForm: FormGroup;
 	imageurl: any;
 	ngOnInit() {
+		this.profileForm = this.formBuilder.group({
+			lastName: [""],
+			firstName: [""],
+			middleName: [""],
+			password: [""],
+			email: [""]
+		});
+		this.viewData();
+	}
+	viewData() {
 		this.dealerApiService.getUser().subscribe((res: any) => {
 			this.forms = res.data;
+
+			this.profileForm.patchValue({
+				lastName: [this.forms.lastName],
+				firstName: [this.forms.firstName],
+				middleName: [this.forms.middleName],
+				password: [this.forms.password],
+				email: [this.forms.email],
+				uploadFile: [this.forms.uploadFile]
+			});
 
 			//Render image
 			const TYPED_ARRAY = new Uint8Array(res.imageData.data);
