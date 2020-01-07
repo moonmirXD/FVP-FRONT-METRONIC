@@ -89,6 +89,7 @@ import { ForgotPasswordResetComponent } from './dealer/forgot-password-reset/for
 import { OnlineStoreViewComponent } from './dealer/online-store/online-store-view/online-store-view.component';
 import { OnlineStoreUpdateComponent } from './dealer/online-store/online-store-update/online-store-update.component';
 import { HomeComponent } from './home/home.component';
+import { HomeProfileComponent } from './dealer/home-profile/home-profile.component';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -138,7 +139,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 		ForgotPasswordResetComponent,
 		OnlineStoreViewComponent,
 		OnlineStoreUpdateComponent,
-		HomeComponent
+		HomeComponent,
+		HomeProfileComponent
 	],
 	imports: [
 		BrowserAnimationsModule,

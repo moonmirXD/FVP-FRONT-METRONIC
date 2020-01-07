@@ -37,10 +37,10 @@ export class EditContactComponent implements OnInit {
 				this.forms = res.data;
 				console.log(res);
 				console.log("forms:", this.forms);
-				// this.profileForm.patchValue({
-				// 	contactNumber: [this.forms.contactNumber],
-				// 	address: [this.forms.address]
-				// });
+				this.profileForm.patchValue({
+					contactNumber: [this.forms.contactNumber],
+					address: [this.forms.address]
+				});
 			},
 			err => {
 				console.log(err);
@@ -50,6 +50,7 @@ export class EditContactComponent implements OnInit {
 
 	onSubmit() {
 		this.submitted = true;
+		console.log(this.profileForm.value);
 		if (this.profileForm.invalid) {
 			return;
 		} else {
@@ -60,6 +61,7 @@ export class EditContactComponent implements OnInit {
 					console.log("form:" + this.profileForm.value.contactNumber);
 					this.forms = res.data;
 					alert("Successfully updated");
+					this.router.navigate(["personal-details/contact"]);
 				});
 		}
 	}

@@ -33,6 +33,7 @@ import { MainNavComponent } from "./main-nav/main-nav.component";
 import { HomeComponent } from "./home/home.component";
 import { OnlineStoreViewComponent } from "./dealer/online-store/online-store-view/online-store-view.component";
 import { OnlineStoreUpdateComponent } from "./dealer/online-store/online-store-update/online-store-update.component";
+import { HomeProfileComponent } from "./dealer/home-profile/home-profile.component";
 const routes: Routes = [
 	// { path: "**", redirectTo: "", pathMatch: "full" },
 	// { path: "**", redirectTo: "/" },
@@ -101,6 +102,12 @@ const routes: Routes = [
 		path: "personal-details/dealer-edit",
 		component: EditProfileComponent,
 		canActivate: [AuthdealerGuard]
+	},
+
+	//Home Profile
+	{
+		path: "home-profile",
+		component: HomeProfileComponent
 	},
 
 	{

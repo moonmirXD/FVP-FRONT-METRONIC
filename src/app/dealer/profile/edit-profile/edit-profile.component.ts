@@ -80,6 +80,7 @@ export class EditProfileComponent implements OnInit {
 	}
 	progress: number = 0;
 	onSubmit() {
+		alert("Wait to update the form. Thank you.");
 		this.submitted = true;
 		if (this.profileForm.invalid) {
 			return;
@@ -90,7 +91,7 @@ export class EditProfileComponent implements OnInit {
 					console.log(res);
 					alert("Successfully Updated.");
 					this.forms = res.data;
-					// this.router.navigate(["personal-details/dealer"]);
+					this.router.navigate(["personal-details/dealer"]);
 				});
 		}
 	}
