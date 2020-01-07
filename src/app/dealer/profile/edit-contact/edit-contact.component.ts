@@ -21,23 +21,26 @@ export class EditContactComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.viewData();
+		const unamePattern = "^(+d{1,3}[- ]?)?d{10}$";
 		this.profileForm = this.formBuilder.group({
-			contactNumber: ["", Validators.required],
+			contactNumber: [
+				"",
+				[Validators.required, Validators.pattern("^[0-9_-]{6,15}$")]
+			],
 			address: ["", Validators.required]
 		});
+		this.viewData();
 	}
 	viewData() {
 		this.dealerApiService.getUser().subscribe(
 			(res: any) => {
 				this.forms = res.data;
-				console.log(res.data.address);
 				console.log(res);
 				console.log("forms:", this.forms);
-				this.profileForm.patchValue({
-					contactNumber: [this.forms.contactNumber],
-					address: [this.forms.address]
-				});
+				// this.profileForm.patchValue({
+				// 	contactNumber: [this.forms.contactNumber],
+				// 	address: [this.forms.address]
+				// });
 			},
 			err => {
 				console.log(err);
@@ -54,6 +57,8 @@ export class EditContactComponent implements OnInit {
 				.updateUser(this.profileForm.value)
 				.subscribe((res: any) => {
 					console.log(res);
+					console.log("form:" + this.profileForm.value.contactNumber);
+					this.forms = res.data;
 					alert("Successfully updated");
 				});
 		}

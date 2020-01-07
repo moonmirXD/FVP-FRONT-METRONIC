@@ -34,7 +34,7 @@ export class DealerapiService {
 	// GET URL
 	getURL = "http://localhost:3000/dealer/profile";
 	getuserURL = "http://localhost:3000/dealer/profile";
-	edutUserURL = "http://localhost:3000/dealer/profile/edit";
+	editUserURL = "http://localhost:3000/dealer/profile/edit";
 
 	postForgotPassword(form) {
 		return this.http.post(this.forgotPasswordURL, form);
@@ -92,8 +92,12 @@ export class DealerapiService {
 		);
 	}
 	updateUser(form) {
+		return this.http.patch(this.editUserURL, form);
+	}
+
+	updateProfilePicUser(form) {
 		return this.http
-			.patch(this.edutUserURL, form, {
+			.patch(this.editUserURL, form, {
 				reportProgress: true,
 				observe: "events"
 			})

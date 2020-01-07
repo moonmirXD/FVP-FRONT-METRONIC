@@ -21,7 +21,6 @@ export class EditProfileComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.viewData();
 		this.profileForm = this.formBuilder.group({
 			lastName: [
 				"",
@@ -35,23 +34,23 @@ export class EditProfileComponent implements OnInit {
 				"",
 				[Validators.required, Validators.pattern("^[a-zA-Z -']+")]
 			],
-			password: ["", Validators.required],
+			// password: ["", Validators.required],
 			email: ["", [Validators.email, Validators.required]],
 			uploadFile: [null]
 		});
+		this.viewData();
 	}
 	viewData() {
 		this.dealerApiService.getUser().subscribe(
 			(res: any) => {
 				this.forms = res.data;
 				console.log(res);
-				this.profileForm.patchValue({
-					lastName: [this.forms.lastName],
-					firstName: [this.forms.firstName],
-					middleName: [this.forms.middleName],
-					password: [this.forms.password],
-					email: [this.forms.email]
-				});
+				// this.profileForm.patchValue({
+				// 	lastName: [this.forms.lastName],
+				// 	firstName: [this.forms.firstName],
+				// 	middleName: [this.forms.middleName],
+				// 	email: [this.forms.email]
+				// });
 			},
 			err => {
 				console.log(err);
@@ -87,32 +86,11 @@ export class EditProfileComponent implements OnInit {
 		} else {
 			this.dealerApiService
 				.updateUser(this.profileForm.value)
-				.subscribe((event: HttpEvent<any>) => {
-					switch (event.type) {
-						case HttpEventType.Sent:
-							console.log("Request has been made!");
-							alert("Uploading please wait.");
-							break;
-						case HttpEventType.ResponseHeader:
-							console.log("Response header has been received!");
-							break;
-						case HttpEventType.UploadProgress:
-							this.progress = Math.round(
-								(event.loaded / event.total) * 100
-							);
-							console.log(`Uploaded! ${this.progress}%`);
-							break;
-						case HttpEventType.Response:
-							console.log(
-								"User successfully created!",
-								event.body
-							);
-							alert("Successfully uploaded.");
-
-							setTimeout(() => {
-								this.progress = 0;
-							}, 1500);
-					}
+				.subscribe((res: any) => {
+					console.log(res);
+					alert("Successfully Updated.");
+					this.forms = res.data;
+					// this.router.navigate(["personal-details/dealer"]);
 				});
 		}
 	}

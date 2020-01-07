@@ -13,7 +13,7 @@
 									class="form-control"
 									name="contactNumber"
 									formControlName="contactNumber"
-									value="{{ forms?.contactNumber }}"
+									[ngModel]="forms?.contactNumber"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&
@@ -43,6 +43,16 @@
 									>
 										Contact Number is required.
 									</div>
+									<div
+										*ngIf="
+											profileForm.controls[
+												'contactNumber'
+											].errors.pattern
+										"
+									>
+										Contact number must be numeric and
+										minimum of 6 characters.
+									</div>
 								</div>
 							</div>
 							<div class="col-md-6 col-12 form-group">
@@ -51,7 +61,7 @@
 									class="form-control"
 									name="address"
 									formControlName="address"
-									value="{{ forms?.address }}"
+									[ngModel]="forms?.address"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&

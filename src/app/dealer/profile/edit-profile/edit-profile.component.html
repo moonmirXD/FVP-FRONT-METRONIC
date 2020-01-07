@@ -13,6 +13,7 @@
 									class="form-control"
 									name="lastName"
 									formControlName="lastName"
+									[ngModel]="forms?.lastName"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&
@@ -52,6 +53,7 @@
 									class="form-control"
 									name="firstName"
 									formControlName="firstName"
+									[ngModel]="forms?.firstName"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&
@@ -91,6 +93,7 @@
 									class="form-control"
 									name="middleName"
 									formControlName="middleName"
+									[ngModel]="forms?.middleName"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&
@@ -132,13 +135,6 @@
 									type="password"
 									class="form-control"
 									name="password"
-									formControlName="password"
-									[ngClass]="{
-										'is-invalid':
-											submitted &&
-											profileForm.controls['password']
-												.errors
-									}"
 									disabled
 								/>
 								<span
@@ -171,6 +167,7 @@
 									class="form-control"
 									name="email"
 									formControlName="email"
+									[ngModel]="forms?.email"
 									[ngClass]="{
 										'is-invalid':
 											submitted &&

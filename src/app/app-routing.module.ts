@@ -34,6 +34,8 @@ import { HomeComponent } from "./home/home.component";
 import { OnlineStoreViewComponent } from "./dealer/online-store/online-store-view/online-store-view.component";
 import { OnlineStoreUpdateComponent } from "./dealer/online-store/online-store-update/online-store-update.component";
 const routes: Routes = [
+	// { path: "**", redirectTo: "", pathMatch: "full" },
+	// { path: "**", redirectTo: "/" },
 	{ path: "", component: HomeComponent },
 	{ path: "adminlogin", component: AdminLoginComponent },
 	{ path: "dealerlogin", component: DealerLoginComponent },
