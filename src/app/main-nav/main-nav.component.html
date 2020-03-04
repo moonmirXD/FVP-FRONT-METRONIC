@@ -11,6 +11,49 @@
 		[mode]="(isHandset$ | async) ? 'over' : 'side'"
 		[opened]="(isHandset$ | async) === false"
 	>
+		<!-- <div
+			class="accordion"
+			id="accordionExample"
+			style="background: rgba(0,0,0,0.1);"
+		>
+			<div class="card">
+				<div class="card-header" id="headingOne" style="color:white">
+					<h2 class="mb-0">
+						<button
+							class="btn btn-link"
+							type="button"
+							data-toggle="collapse"
+							data-target="#collapseOne"
+							aria-expanded="true"
+							aria-controls="collapseOne"
+						>
+							<a mat-list-item [routerLink]="['/URL-Details']"
+								><h2 style="color:black">
+									MySite
+								</h2></a
+							>
+						</button>
+					</h2>
+				</div>
+
+				<div
+					id="collapseOne"
+					class="collapse show"
+					aria-labelledby="headingOne"
+					data-parent="#accordionExample"
+				>
+					<div class="card-body">
+						<a
+							data-toggle="tab"
+							mat-list-item
+							[routerLink]="['/URL-Details']"
+							><p style="color:black">Shortcut URL</p></a
+						>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
 		<!-- <mat-toolbar>Menu</mat-toolbar> -->
 		<img
 			src="../../assets/images/fvp.png"
@@ -21,7 +64,10 @@
 			<a mat-list-item [routerLink]="['/URL-Details']"><h2>MySite</h2></a>
 			<ul style="list-style-type:none">
 				<li>
-					<a mat-list-item [routerLink]="['/URL-Details']"
+					<a
+						data-toggle="tab"
+						mat-list-item
+						[routerLink]="['/URL-Details']"
 						><p>Shortcut URL</p></a
 					>
 				</li>
