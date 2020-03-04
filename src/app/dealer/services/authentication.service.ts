@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-
+import { environment } from "../../../environments/environment.prod";
 @Injectable({
 	providedIn: "root"
 })
 export class AuthenticationService {
-	private dealerLoginUrl: string = "http://localhost:3000/dealer/login";
+	apiBaseUrl = environment.api_url;
+	private dealerLoginUrl: string = `${this.apiBaseUrl}dealer/login`;
 	constructor(private http: HttpClient, private router: Router) {}
 
 	loginDealer(user) {
