@@ -37,6 +37,7 @@ export class DealerLoginComponent implements OnInit {
 			this.authService.loginDealer(this.loginUserData.value).subscribe(
 				res => {
 					console.log(res);
+					alert("Successfully login");
 					localStorage.setItem("token", res.token);
 					this.router.navigate(["/URL-Details"]);
 				},
