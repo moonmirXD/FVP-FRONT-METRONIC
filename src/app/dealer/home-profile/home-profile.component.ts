@@ -1,7 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, enableProdMode } from "@angular/core";
 import { DealerapiService } from "../services/dealerapi.service";
 import { DomSanitizer } from "@angular/platform-browser";
 import { FormGroup, FormBuilder } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Component({
 	selector: "kt-home-profile",
@@ -12,20 +15,38 @@ export class HomeProfileComponent implements OnInit {
 	constructor(
 		private dealerApiService: DealerapiService,
 		private domSanitizer: DomSanitizer,
-		private formBuilder: FormBuilder
+		private formBuilder: FormBuilder,
+		private route: ActivatedRoute
 	) {}
 	forms: any;
 	profileForm: FormGroup;
 	imageurl: any;
+	username: any;
+
+	user: any;
 	ngOnInit() {
-		this.profileForm = this.formBuilder.group({
-			lastName: [""],
-			firstName: [""],
-			middleName: [""],
-			password: [""],
-			email: [""]
-		});
-		this.viewData();
+		// this.route.params.subscribe(params => {
+		// 	// get the username out of the route params
+		// 	this.username = params["username"];
+		// 	const username = params["username"];
+		// 	this.dealerApiService
+		// 		.getUserbyUsernameProfile(username)
+		// 		.subscribe((user: any) => {
+		// 			this.user = user.data;
+		// 			console.log(user);
+		// 			console.log(user.data);
+		// 			this.firstName = user.data.firstName;
+		// 			alert(user.data.firstName);
+		// 		});
+		// });
+		// this.profileForm = this.formBuilder.group({
+		// 	lastName: [""],
+		// 	firstName: [""],
+		// 	middleName: [""],
+		// 	password: [""],
+		// 	email: [""]
+		// });
+		// this.viewData();
 	}
 	viewData() {
 		this.dealerApiService.getUser().subscribe((res: any) => {
@@ -50,4 +71,9 @@ export class HomeProfileComponent implements OnInit {
 			);
 		});
 	}
+}
+export class User {
+	firstName: string;
+	lastName: string;
+	// remaining properties
 }

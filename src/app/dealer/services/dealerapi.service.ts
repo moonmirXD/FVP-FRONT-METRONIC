@@ -36,6 +36,8 @@ export class DealerapiService {
 	getuserURL = "http://localhost:3000/dealer/profile";
 	editUserURL = "http://localhost:3000/dealer/profile/edit";
 
+	getUserByUsernameProfileURL = "http://localhost:3000/dealer/profile";
+
 	postForgotPassword(form) {
 		return this.http.post(this.forgotPasswordURL, form);
 	}
@@ -90,6 +92,11 @@ export class DealerapiService {
 				}
 			})
 		);
+	}
+	getUserbyUsernameProfile(username: string) {
+		return this.http
+			.get(`${this.getUserByUsernameProfileURL}/${username}`)
+			.pipe(delay(1000));
 	}
 	updateUser(form) {
 		return this.http.patch(this.editUserURL, form);

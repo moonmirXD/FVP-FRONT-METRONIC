@@ -19,9 +19,9 @@
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"
 ></script>
-
+<link rel="stylesheet" href="" media="only screen and (max-device width:480px)" />
 <body>
-	<div class="container">
+
 		<div class="form">
 			<h1>Congratulations!</h1>
 			<p>
@@ -172,6 +172,7 @@
 								}"
 								required
 							/>
+							<span>This username will be use as your URL (Ex. https://my.fvp.ph/username)</span>
 							<div
 								*ngIf="
 									submitted &&
@@ -188,6 +189,7 @@
 									Username is required
 								</div>
 							</div>
+							
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="validationDefault02"
@@ -429,5 +431,5 @@
 				</fieldset>
 			</form>
 		</div>
-	</div>
+
 </body>

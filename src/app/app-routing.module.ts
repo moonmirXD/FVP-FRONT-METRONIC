@@ -106,7 +106,7 @@ const routes: Routes = [
 
 	//Home Profile
 	{
-		path: "home-profile",
+		path: ":username",
 		component: HomeProfileComponent
 	},
 
@@ -126,31 +126,31 @@ const routes: Routes = [
 				component: AdminComponent,
 				canActivate: [AuthGuard]
 			},
-			{
-				path: "dashboard",
-				loadChildren: () =>
-					import("./views/pages/dashboard/dashboard.module").then(
-						m => m.DashboardModule
-					)
-			},
-			{
-				path: "builder",
-				loadChildren: () =>
-					import("./views/theme/content/builder/builder.module").then(
-						m => m.BuilderModule
-					)
-			},
-			{
-				path: "error/403",
-				component: ErrorPageComponent,
-				data: {
-					type: "error-v6",
-					code: 403,
-					title: "403... Access forbidden",
-					desc:
-						"Looks like you don't have permission to access for requested page.<br> Please, contact administrator"
-				}
-			},
+			// {
+			// 	path: "dashboard",
+			// 	loadChildren: () =>
+			// 		import("./views/pages/dashboard/dashboard.module").then(
+			// 			m => m.DashboardModule
+			// 		)
+			// },
+			// {
+			// 	path: "builder",
+			// 	loadChildren: () =>
+			// 		import("./views/theme/content/builder/builder.module").then(
+			// 			m => m.BuilderModule
+			// 		)
+			// },
+			// {
+			// 	path: "error/403",
+			// 	component: ErrorPageComponent,
+			// 	data: {
+			// 		type: "error-v6",
+			// 		code: 403,
+			// 		title: "403... Access forbidden",
+			// 		desc:
+			// 			"Looks like you don't have permission to access for requested page.<br> Please, contact administrator"
+			// 	}
+			// },
 			//powercard
 			{
 				path: "admin",

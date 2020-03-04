@@ -1,11 +1,11 @@
-<link
+<!-- <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	rel="stylesheet"
 	id="bootstrap-css"
 />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
 <form action="" [formGroup]="profileForm">
 	<div class="container portfolio">
 		<div class="row">
@@ -54,4 +54,26 @@
 			</div>
 		</div>
 	</div>
-</form>
+</form> -->
+<!-- <div *ngIf="user">
+	{{ user.firstname }}
+</div> -->
+with ?:{{ user?.firstName }}
+
+<div *ngIf="user">
+	{{ user.firstName }}
+</div>
+
+{{ zxc }}
+
+{{ zxc1.data?.firstName }}
+
+<!-- w/o ?:{{ user.firstName }} -->
+
+<!-- <ng-container *ngIf="user | async as use">
+	async:{{ use.firstName }}
+</ng-container> -->
+
+<button (click)="show()">show</button>
+
+{{ firstName }}
