@@ -7,36 +7,37 @@ import {
 import { tap, delay, map, catchError } from "rxjs/operators";
 import { Observable, throwError } from "rxjs";
 import { Router } from "@angular/router";
+import { environment } from "src/environments/environment.prod";
 
 @Injectable({
 	providedIn: "root"
 })
 export class DealerapiService {
+	apiBaseUrl = environment.api_url;
 	constructor(private http: HttpClient, private router: Router) {}
 
 	//Forgot-password
-	forgotPasswordURL = "http://localhost:3000/resetPassword";
-	resetForgotPasswordURL =
-		"http://localhost:3000/resetPassword/changepassword";
+	forgotPasswordURL = `${this.apiBaseUrl}resetPassword`;
+	resetForgotPasswordURL = `${this.apiBaseUrl}resetPassword/changepassword`;
 
 	mockDB = "http://localhost:3000/users";
 
 	//Pin
-	activateCardURL = "http://localhost:3000/activate"; //Activate Pin
-	registerFormURL = "http://localhost:3000/activate/register"; //Register Page
+	activateCardURL = `${this.apiBaseUrl}activate`; //Activate Pin
+	registerFormURL = `${this.apiBaseUrl}activate/register`; //Register Page
 
 	// Dealer when he/she is loggedIn
 
-	getPowerCardURL = "http://localhost:3000/powercard/list";
-	getByIdUserURL = "http://localhost:3200/users";
-	updateFormUrl = "http://localhost:3000/dealer/profile/edit";
+	getPowerCardURL = `${this.apiBaseUrl}powercard/list`;
+	getByIdUserURL = `${this.apiBaseUrl}users`;
+	updateFormUrl = `${this.apiBaseUrl}dealer/profile/edit`;
 
 	// GET URL
-	getURL = "http://localhost:3000/dealer/profile";
-	getuserURL = "http://localhost:3000/dealer/profile";
-	editUserURL = "http://localhost:3000/dealer/profile/edit";
+	getURL = `${this.apiBaseUrl}dealer/profile`;
+	getuserURL = `${this.apiBaseUrl}dealer/profile`;
+	editUserURL = `${this.apiBaseUrl}dealer/profile/edit`;
 
-	getUserByUsernameProfileURL = "http://localhost:3000/dealer/profile";
+	getUserByUsernameProfileURL = `${this.apiBaseUrl}dealer/profile`;
 
 	postForgotPassword(form) {
 		return this.http.post(this.forgotPasswordURL, form);
