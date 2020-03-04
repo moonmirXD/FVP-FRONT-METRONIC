@@ -7,7 +7,7 @@ import {
 import { tap, delay, map, catchError } from "rxjs/operators";
 import { Observable, throwError } from "rxjs";
 import { Router } from "@angular/router";
-import { environment } from "src/environments/environment.prod";
+import { environment } from "../../../environments/environment.prod";
 
 @Injectable({
 	providedIn: "root"
