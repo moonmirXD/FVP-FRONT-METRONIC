@@ -1,4 +1,5 @@
 export const environment = {
 	production: true,
-	authTokenKey: 'authce9d77b308c149d5992a80073637e4d5'
+	api_url: "https://fvp-back.herokuapp.com/"
+	// authTokenKey: 'authce9d77b308c149d5992a80073637e4d5'
 };
