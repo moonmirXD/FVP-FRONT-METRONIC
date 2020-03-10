@@ -111,6 +111,7 @@ const routes: Routes = [
 		path: ":username",
 		component: HomeProfileComponent
 	},
+	{ path: ":id", component: HomeComponent },
 
 	{
 		path: "auth",
@@ -201,7 +202,7 @@ const routes: Routes = [
 				component: GalleryEditComponent,
 				canActivate: [AuthGuard]
 			},
-			{ path: ":id", component: HomeComponent },
+
 			//Dealer
 
 			{ path: "error/:type", component: ErrorPageComponent },
