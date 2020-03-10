@@ -37,7 +37,9 @@ import { HomeProfileComponent } from "./dealer/home-profile/home-profile.compone
 const routes: Routes = [
 	// { path: "**", redirectTo: "", pathMatch: "full" },
 	// { path: "**", redirectTo: "/" },
+
 	{ path: "", component: HomeComponent },
+	{ path: ":id", component: HomeComponent },
 	{ path: "adminlogin", component: AdminLoginComponent },
 	{ path: "dealerlogin", component: DealerLoginComponent },
 

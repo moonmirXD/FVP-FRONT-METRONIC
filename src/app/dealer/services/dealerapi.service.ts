@@ -14,13 +14,13 @@ import { environment } from "../../../environments/environment.prod";
 })
 export class DealerapiService {
 	apiBaseUrl = environment.api_url;
+	mockDB = "http://localhost:3000/users";
+	API_URL = "";
 	constructor(private http: HttpClient, private router: Router) {}
 
 	//Forgot-password
 	forgotPasswordURL = `${this.apiBaseUrl}resetPassword`;
 	resetForgotPasswordURL = `${this.apiBaseUrl}resetPassword/changepassword`;
-
-	mockDB = "http://localhost:3000/users";
 
 	//Pin
 	activateCardURL = `${this.apiBaseUrl}activate`; //Activate Pin
@@ -66,6 +66,34 @@ export class DealerapiService {
 		return this.http.get(this.mockDB, {
 			params: new HttpParams().set("username", uName)
 		});
+	}
+
+	private handleError(error: HttpErrorResponse) {
+		return throwError(error.error);
+	}
+
+	public post<T, U>(path: string, body: T): Promise<U> {
+		return new Promise((resolve, reject) =>
+			this.http
+				.post(this.API_URL + path, body)
+				.pipe(catchError(this.handleError))
+				.subscribe(
+					(data: any) => resolve(data),
+					err => reject(err)
+				)
+		);
+	}
+
+	public get<T>(path: string): Promise<T> {
+		return new Promise((resolve, reject) =>
+			this.http
+				.get(this.apiBaseUrl + path)
+				.pipe(catchError(this.handleError))
+				.subscribe(
+					(data: any) => resolve(data),
+					err => reject(err)
+				)
+		);
 	}
 
 	getRegisterUsers() {

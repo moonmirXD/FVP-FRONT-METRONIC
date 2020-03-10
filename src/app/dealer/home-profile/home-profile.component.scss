@@ -1,6 +1,6 @@
 .greetings {
 	text-align: center;
-	font-size: 4rem;
+	font-size: 3rem;
 }
 .name-container {
 	text-align: center;
@@ -22,18 +22,21 @@
 }
 .photo--container {
 	border-radius: 50%;
-	border: 5px solid black;
-	width: 300px;
+	border: 5px solid white;
+	width: 320px;
 	position: absolute;
 	top: 305px;
-	height: 26rem;
+	height: 27rem;
+	text-align: center;
 	padding: 5px;
-	float: left;
+	left: 30px;
+	background-color: white;
+	box-shadow: 5px 10px #888888;
 }
 .photo--container .photo img {
 	border-radius: 50%;
-	border: 2px solid white;
-	width: 290px;
+	// border: 2px solid white;
+	width: 310px;
 	top: -30px;
 	height: 25rem;
 	float: left;
@@ -82,10 +85,11 @@
 	.photo--container {
 		border-radius: 50%;
 		border: 2px solid black;
-		width: 400px;
+		width: 420px;
 		position: unset;
-		height: 200px;
+		height: 210px;
 		text-align: center;
+		z-index: -1;
 	}
 	.photo--container .photo img {
 		border-radius: 50%;
@@ -94,5 +98,6 @@
 		position: unset;
 		height: 200px;
 		float: left;
+		z-index: -1;
 	}
 }

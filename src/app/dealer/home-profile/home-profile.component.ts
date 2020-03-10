@@ -5,19 +5,22 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-
 @Component({
 	selector: "kt-home-profile",
 	templateUrl: "./home-profile.component.html",
 	styleUrls: ["./home-profile.component.scss"]
 })
 export class HomeProfileComponent implements OnInit {
+	usernameURL: any;
 	constructor(
 		private dealerApiService: DealerapiService,
 		private domSanitizer: DomSanitizer,
 		private formBuilder: FormBuilder,
 		private route: ActivatedRoute
-	) {}
+	) {
+		this.usernameURL = this.route.snapshot.params.id;
+		console.log(this.usernameURL);
+	}
 	forms: any;
 	profileForm: FormGroup;
 	imageurl: any;
@@ -25,6 +28,16 @@ export class HomeProfileComponent implements OnInit {
 
 	user: any;
 	ngOnInit() {
+		this.dealerApiService
+			.get(`dealer/profile/${this.usernameURL}`)
+			.then((res: any) => {
+				console.log(res.message);
+				console.log(res);
+				this.forms = res.data;
+			})
+			.catch(error => {
+				console.log(error);
+			});
 		// this.route.params.subscribe(params => {
 		// 	// get the username out of the route params
 		// 	this.username = params["username"];
