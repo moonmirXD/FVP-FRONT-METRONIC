@@ -39,7 +39,7 @@ const routes: Routes = [
 	// { path: "**", redirectTo: "/" },
 
 	{ path: "", component: HomeComponent },
-	{ path: ":id", component: HomeComponent },
+
 	{ path: "adminlogin", component: AdminLoginComponent },
 	{ path: "dealerlogin", component: DealerLoginComponent },
 
@@ -201,7 +201,7 @@ const routes: Routes = [
 				component: GalleryEditComponent,
 				canActivate: [AuthGuard]
 			},
-
+			{ path: ":id", component: HomeComponent },
 			//Dealer
 
 			{ path: "error/:type", component: ErrorPageComponent },
