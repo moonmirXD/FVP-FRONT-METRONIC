@@ -107,10 +107,10 @@ const routes: Routes = [
 	},
 
 	//Home Profile
-	{
-		path: ":username",
-		component: HomeProfileComponent
-	},
+	// {
+	// 	path: ":username",
+	// 	component: HomeProfileComponent
+	// },
 	{ path: ":id", component: HomeComponent },
 
 	{
