@@ -1,22 +1,98 @@
 .greetings {
 	text-align: center;
-	font-size: 50px;
+	font-size: 4rem;
 }
 .name-container {
 	text-align: center;
-	font-size: 50px;
+	font-size: 4rem;
 	font-weight: bolder;
 	color: orange;
 }
 .data-container {
-	height: 15rem;
+	height: 12rem;
 	width: 100%;
 	padding: 50px;
 	background-color: #88b84a;
 	color: white;
 	text-align: center;
 }
-.data-container > p {
-	font-size: 45px;
+.data-container p {
+	font-size: 2rem;
 	font-weight: bolder;
+}
+.photo--container {
+	border-radius: 50%;
+	border: 5px solid black;
+	width: 300px;
+	position: absolute;
+	top: 305px;
+	height: 26rem;
+	padding: 5px;
+	float: left;
+}
+.photo--container .photo img {
+	border-radius: 50%;
+	border: 2px solid white;
+	width: 290px;
+	top: -30px;
+	height: 25rem;
+	float: left;
+	left: 30px;
+	position: sticky;
+}
+
+@media screen and (max-width: 600px) {
+	.data-container {
+		height: 30rem;
+		width: 100%;
+		padding: 50px;
+		background-color: #88b84a;
+		color: white;
+		text-align: center;
+	}
+	.greetings {
+		// text-align: center;
+		font-size: 2.5rem;
+	}
+	.name-container {
+		text-align: center;
+		font-size: 2.5rem;
+		font-weight: bolder;
+		color: orange;
+	}
+	.photo--container {
+		border-radius: 50%;
+		border: 2px solid black;
+		width: 100%;
+		position: unset;
+		top: 50%;
+		height: 100%;
+	}
+	.photo--container .photo img {
+		border-radius: 50%;
+		border: 2px solid black;
+		width: 100%;
+		position: unset;
+		height: 100%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.photo--container {
+		border-radius: 50%;
+		border: 2px solid black;
+		width: 400px;
+		position: unset;
+		height: 200px;
+		text-align: center;
+	}
+	.photo--container .photo img {
+		border-radius: 50%;
+		border: 2px solid black;
+		width: 400px;
+		position: unset;
+		height: 200px;
+		float: left;
+	}
 }
