@@ -3,7 +3,7 @@ import { DealerapiService } from "../services/dealerapi.service";
 import { DomSanitizer } from "@angular/platform-browser";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
-import { Observable } from "rxjs";
+import { Observable, empty } from "rxjs";
 import { map } from "rxjs/operators";
 @Component({
 	selector: "kt-home-profile",
@@ -22,6 +22,7 @@ export class HomeProfileComponent implements OnInit {
 		console.log(this.usernameURL);
 	}
 	forms: any;
+	show = true;
 	profileForm: FormGroup;
 	imageurl: any;
 	username: any;
@@ -34,6 +35,12 @@ export class HomeProfileComponent implements OnInit {
 				console.log(res.message);
 				console.log(res);
 				this.forms = res.data;
+				if (!Object.keys(res.data).length) {
+					this.show = false;
+					console.log("No data found.");
+				} else {
+					this.show = true;
+				}
 			})
 			.catch(error => {
 				console.log(error);
